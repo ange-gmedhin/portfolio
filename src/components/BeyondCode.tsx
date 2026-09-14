@@ -1,0 +1,279 @@
+import {
+  Server,
+  Network,
+  Rocket,
+  MessageSquare,
+  Users,
+  ShieldCheck,
+  Globe,
+  Mail,
+  ArrowRight,
+  GitBranch,
+  Terminal,
+  Code2,
+  CheckCircle2,
+} from 'lucide-react';
+
+export function BeyondCode() {
+  const deploymentStages = [
+    { name: 'Developer', desc: 'Codebase engineering' },
+    { name: 'Git', desc: 'Branching & version control' },
+    { name: 'Build', desc: 'Optimized static & server bundles' },
+    { name: 'Deployment', desc: 'Zero-downtime release procedure' },
+    { name: 'Hostinger / VPS', desc: 'cPanel, hPanel, Linux VPS' },
+    { name: 'Domain + DNS + SSL', desc: 'Records routing & TLS encryption' },
+    { name: 'Production App', desc: 'Live, audited, and reachable' },
+  ];
+
+  return (
+    <section id="beyond-code" className="py-24 border-b border-slate-800/80 bg-[#0B0F17] relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="max-w-3xl mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-900 border border-slate-800 text-amber-400 font-mono text-xs uppercase tracking-wider mb-3">
+            // Operational Discipline
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-slate-100 tracking-tight">
+            Software doesn't end when the code is finished.
+          </h2>
+          <p className="mt-3 text-slate-400 text-base leading-relaxed">
+            Many developers leave once the code runs on their local laptop. I take ownership of the operational lifecycle: provisioning servers, configuring DNS routing, setting up company email infrastructure, managing client expectations, and supporting production systems.
+          </p>
+        </div>
+
+        {/* Hosting & Deployment Visual Architecture Diagram */}
+        <div className="mb-14 p-6 sm:p-8 rounded-2xl bg-slate-950 border border-slate-800 shadow-xl">
+          <div className="flex flex-wrap items-center justify-between gap-2 pb-4 mb-6 border-b border-slate-800/80 font-mono text-xs">
+            <span className="text-amber-400 font-bold flex items-center gap-2">
+              <Terminal className="w-4 h-4" />
+              <span>PRODUCTION HOSTING & DEPLOYMENT PIPELINE</span>
+            </span>
+            <span className="text-slate-400">Hostinger • Linux VPS • DNS Delegation</span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3 relative">
+            {deploymentStages.map((stage, idx) => (
+              <div
+                key={idx}
+                className="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-col justify-between relative group hover:border-amber-500/40 transition-colors"
+              >
+                <div>
+                  <div className="text-[10px] font-mono text-slate-400 mb-1">
+                    0{idx + 1}
+                  </div>
+                  <div className="text-xs font-bold font-display text-slate-100 group-hover:text-amber-300 transition-colors">
+                    {stage.name}
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-400 font-sans mt-2">
+                  {stage.desc}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 pt-4 border-t border-slate-800/60 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-slate-400">
+            <div className="flex items-center gap-4">
+              <span className="flex items-center gap-1.5 text-emerald-400">
+                <CheckCircle2 className="w-3.5 h-3.5" /> Direct static Hostinger public_html deploy
+              </span>
+              <span className="flex items-center gap-1.5 text-blue-400">
+                <CheckCircle2 className="w-3.5 h-3.5" /> Full Linux VPS daemon & database control
+              </span>
+            </div>
+            <span className="text-slate-400">Zero broken deployment handoffs</span>
+          </div>
+        </div>
+
+        {/* 5 Operational Responsibilities Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+          {/* 1. Hosting */}
+          <div className="p-6 rounded-xl bg-slate-900/50 border border-slate-800/90 hover:border-slate-700 transition-colors">
+            <div className="w-10 h-10 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center text-amber-400 mb-4">
+              <Server className="w-5 h-5" />
+            </div>
+            <h3 className="text-lg font-display font-bold text-slate-100 mb-2">
+              Hosting & Provisioning
+            </h3>
+            <p className="text-xs text-slate-400 mb-4 leading-relaxed">
+              Hands-on management of production hosting environments tailored to project scale and budget constraints.
+            </p>
+            <ul className="space-y-1.5 text-xs text-slate-300 font-mono">
+              <li className="flex items-center gap-2">
+                <span className="text-amber-400">•</span> Hostinger Shared & Cloud setups
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-amber-400">•</span> Ubuntu Linux VPS configuration
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-amber-400">•</span> Production deployment runbooks
+              </li>
+            </ul>
+          </div>
+
+          {/* 2. Infrastructure */}
+          <div className="p-6 rounded-xl bg-slate-900/50 border border-slate-800/90 hover:border-slate-700 transition-colors">
+            <div className="w-10 h-10 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center text-blue-400 mb-4">
+              <Network className="w-5 h-5" />
+            </div>
+            <h3 className="text-lg font-display font-bold text-slate-100 mb-2">
+              Infrastructure & DNS
+            </h3>
+            <p className="text-xs text-slate-400 mb-4 leading-relaxed">
+              Connecting raw server IP addresses to user-facing domain names with security and routing integrity.
+            </p>
+            <ul className="space-y-1.5 text-xs text-slate-300 font-mono">
+              <li className="flex items-center gap-2">
+                <span className="text-blue-400">•</span> Domain names & registrar config
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-blue-400">•</span> DNS routing (A, CNAME, MX, TXT)
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-blue-400">•</span> SSL/TLS certificates & HTTPS
+              </li>
+            </ul>
+          </div>
+
+          {/* 3. Delivery */}
+          <div className="p-6 rounded-xl bg-slate-900/50 border border-slate-800/90 hover:border-slate-700 transition-colors">
+            <div className="w-10 h-10 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center text-emerald-400 mb-4">
+              <Rocket className="w-5 h-5" />
+            </div>
+            <h3 className="text-lg font-display font-bold text-slate-100 mb-2">
+              Release Delivery
+            </h3>
+            <p className="text-xs text-slate-400 mb-4 leading-relaxed">
+              Executing orderly software handoffs, rollout timelines, and post-launch stability support.
+            </p>
+            <ul className="space-y-1.5 text-xs text-slate-300 font-mono">
+              <li className="flex items-center gap-2">
+                <span className="text-emerald-400">•</span> Release planning & milestone staging
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-emerald-400">•</span> Live smoke testing & verification
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-emerald-400">•</span> Post-release bug fixing & support
+              </li>
+            </ul>
+          </div>
+
+          {/* 4. Communication */}
+          <div className="p-6 rounded-xl bg-slate-900/50 border border-slate-800/90 hover:border-slate-700 transition-colors">
+            <div className="w-10 h-10 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center text-yellow-400 mb-4">
+              <MessageSquare className="w-5 h-5" />
+            </div>
+            <h3 className="text-lg font-display font-bold text-slate-100 mb-2">
+              Client Communication
+            </h3>
+            <p className="text-xs text-slate-400 mb-4 leading-relaxed">
+              Bridging non-technical business goals into precise engineering constraints without jargon friction.
+            </p>
+            <ul className="space-y-1.5 text-xs text-slate-300 font-mono">
+              <li className="flex items-center gap-2">
+                <span className="text-yellow-400">•</span> Stakeholder requirements gathering
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-yellow-400">•</span> Technical scope boundaries
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-yellow-400">•</span> Transparent sprint progress updates
+              </li>
+            </ul>
+          </div>
+
+          {/* 5. Team Leadership & Agile */}
+          <div className="p-6 rounded-xl bg-slate-900/50 border border-slate-800/90 hover:border-slate-700 transition-colors md:col-span-2 lg:col-span-2">
+            <div className="w-10 h-10 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center text-indigo-400 mb-4">
+              <Users className="w-5 h-5" />
+            </div>
+            <h3 className="text-lg font-display font-bold text-slate-100 mb-2">
+              Team, Mentorship & Agile Process
+            </h3>
+            <p className="text-xs text-slate-400 mb-4 leading-relaxed">
+              Managing engineering execution using Jira and Agile/Scrum. Mentored 8+ junior developers and university interns in real codebases, teaching Git branch strategies, defensive code reviews, and structured system delivery.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 font-mono text-xs">
+              <div className="p-2.5 rounded bg-slate-950 border border-slate-800 text-slate-300">
+                <div className="text-amber-400 font-bold">Jira / Scrum</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Sprints & backlog grooming</div>
+              </div>
+              <div className="p-2.5 rounded bg-slate-950 border border-slate-800 text-slate-300">
+                <div className="text-amber-400 font-bold">8+ Mentored</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Junior devs & interns</div>
+              </div>
+              <div className="p-2.5 rounded bg-slate-950 border border-slate-800 text-slate-300">
+                <div className="text-amber-400 font-bold">Code Reviews</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Security & quality guards</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Dual Capability Panels: Web Platforms & Operational Email */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Web Platforms (WordPress + Frameworks) */}
+          <div className="p-6 rounded-2xl bg-slate-900/70 border border-slate-800">
+            <div className="flex items-center justify-between mb-4">
+              <span className="font-mono text-xs text-amber-400 uppercase tracking-wider">
+                Web Platforms
+              </span>
+              <Code2 className="w-4 h-4 text-slate-400" />
+            </div>
+            <h3 className="text-xl font-display font-bold text-slate-100 mb-2">
+              I choose the technology according to the problem.
+            </h3>
+            <p className="text-xs text-slate-400 leading-relaxed mb-4">
+              Every client problem does not need the same heavy architecture. I comfortably engineer custom React single-page applications, resilient Laravel microservices, or custom WordPress implementations when fast non-technical content management is the right business decision.
+            </p>
+            <div className="flex flex-wrap gap-2 font-mono text-xs">
+              {['React', 'Laravel', 'CodeIgniter', 'WordPress', 'PHP', 'MySQL'].map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-300 font-semibold"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Email & Domain Management */}
+          <div className="p-6 rounded-2xl bg-slate-900/70 border border-slate-800">
+            <div className="flex items-center justify-between mb-4">
+              <span className="font-mono text-xs text-emerald-400 uppercase tracking-wider">
+                System Reachability
+              </span>
+              <Mail className="w-4 h-4 text-slate-400" />
+            </div>
+            <h3 className="text-xl font-display font-bold text-slate-100 mb-2">
+              Keeping business systems reachable, secure, and operational.
+            </h3>
+            <p className="text-xs text-slate-400 leading-relaxed mb-4">
+              A software product cannot serve users if business emails land in spam or domains fail to resolve. I handle professional domain delegation, DNS record synchronization, and business email setups so businesses stay reliably connected.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px] font-mono">
+              <div className="p-2 rounded bg-slate-950 border border-slate-800 text-center">
+                <span className="text-slate-400 block text-[10px]">DNS</span>
+                <span className="text-slate-200 font-bold">A / CNAME</span>
+              </div>
+              <div className="p-2 rounded bg-slate-950 border border-slate-800 text-center">
+                <span className="text-slate-400 block text-[10px]">SECURITY</span>
+                <span className="text-slate-200 font-bold">SSL / HTTPS</span>
+              </div>
+              <div className="p-2 rounded bg-slate-950 border border-slate-800 text-center">
+                <span className="text-slate-400 block text-[10px]">MAIL</span>
+                <span className="text-slate-200 font-bold">MX Records</span>
+              </div>
+              <div className="p-2 rounded bg-slate-950 border border-slate-800 text-center">
+                <span className="text-slate-400 block text-[10px]">DELIVERY</span>
+                <span className="text-slate-200 font-bold">SPF / TXT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
