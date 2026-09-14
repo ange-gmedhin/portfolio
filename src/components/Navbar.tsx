@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, FileText, ArrowUpRight, Terminal } from 'lucide-react';
+import { Menu, X, FileText } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface NavbarProps {
@@ -18,14 +18,11 @@ export function Navbar({ activeSection }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Aligned with merged section structure
   const navLinks = [
     { label: 'Work', href: '#work' },
-    { label: 'Capabilities', href: '#capabilities' },
-    { label: 'Beyond Code', href: '#beyond-code' },
-    { label: 'How I Work', href: '#how-i-work' },
     { label: 'Experience', href: '#experience' },
-    { label: 'Leadership', href: '#leadership' },
-    { label: 'Skills', href: '#skills' },
+    { label: 'Capabilities', href: '#capabilities' },
     { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
   ];
@@ -33,9 +30,9 @@ export function Navbar({ activeSection }: NavbarProps) {
   return (
     <header
       id="site-header"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#0B0F17]/90 backdrop-blur-md border-b border-slate-800/80 shadow-lg shadow-black/20 py-3.5'
+          ? 'bg-bg-primary/90 backdrop-blur-md border-b border-border shadow-lg shadow-black/30 py-3'
           : 'bg-transparent py-5'
       }`}
     >
@@ -44,35 +41,36 @@ export function Navbar({ activeSection }: NavbarProps) {
         <a
           href="#home"
           id="brand-logo"
-          className="group flex items-center gap-3 text-slate-100 hover:text-amber-400 transition-colors"
+          className="group flex items-center gap-3 text-text-primary hover:text-gold transition-colors"
         >
-          <div className="w-9 h-9 rounded-lg bg-slate-900 border border-slate-700/80 group-hover:border-amber-500/60 flex items-center justify-center font-mono font-bold text-amber-400 text-sm tracking-tighter transition-all shadow-inner">
+          <div className="w-9 h-9 rounded-lg bg-surface border border-border group-hover:border-gold/60 flex items-center justify-center font-mono font-bold text-gold text-sm tracking-tighter transition-all shadow-inner">
             AGB
           </div>
           <div className="flex flex-col">
-            <span className="font-display font-bold text-sm tracking-tight text-slate-100 group-hover:text-amber-400 transition-colors">
+            <span className="font-display font-bold text-sm tracking-tight text-text-primary group-hover:text-gold transition-colors">
               Angosom Gebremedhin
             </span>
-            <span className="font-mono text-[11px] text-slate-400 tracking-normal flex items-center gap-1.5">
+            <span className="font-mono text-[11px] text-text-muted tracking-normal flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              Full-Stack & TPM • Ethiopia
+              Full-Stack & Lead Systems Engineer
             </span>
           </div>
         </a>
 
         {/* Desktop navigation */}
-        <nav id="desktop-nav" aria-label="Main Navigation" className="hidden lg:flex items-center gap-1 xl:gap-2">
+        <nav id="desktop-nav" aria-label="Main Navigation" className="hidden md:flex items-center gap-1 xl:gap-2">
           {navLinks.map((link) => {
-            const isActive = activeSection === link.href.substring(1);
+            const sectionId = link.href.substring(1);
+            const isActive = activeSection === sectionId;
             return (
               <a
                 key={link.href}
                 href={link.href}
-                id={`nav-link-${link.href.substring(1)}`}
-                className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
+                id={`nav-link-${sectionId}`}
+                className={`px-3.5 py-1.5 text-xs font-mono font-medium rounded-lg transition-all ${
                   isActive
-                    ? 'text-amber-400 bg-amber-500/10 border border-amber-500/30'
-                    : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                    ? 'text-gold bg-gold/10 border border-gold/30 shadow-sm'
+                    : 'text-text-secondary hover:text-text-primary hover:bg-surface/60'
                 }`}
               >
                 {link.label}
@@ -87,7 +85,7 @@ export function Navbar({ activeSection }: NavbarProps) {
             href={PERSONAL_INFO.cvPath}
             download="Angosom_Gebremedhin_Berhe_CV.pdf"
             id="nav-cv-button"
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-semibold tracking-wide transition-all shadow-sm shadow-amber-500/20 active:scale-95"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-lg bg-gold hover:bg-gold-light text-bg-primary text-xs font-mono font-bold tracking-wide transition-all shadow-sm active:scale-95 cursor-pointer"
           >
             <FileText className="w-3.5 h-3.5" />
             <span>Download CV</span>
@@ -101,9 +99,9 @@ export function Navbar({ activeSection }: NavbarProps) {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle navigation menu"
           aria-expanded={mobileMenuOpen}
-          className="lg:hidden p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white"
+          className="md:hidden p-2 rounded-lg bg-surface border border-border text-text-secondary hover:text-text-primary"
         >
-          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {mobileMenuOpen ? <X className="w-5 h-5 text-gold" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
@@ -111,25 +109,35 @@ export function Navbar({ activeSection }: NavbarProps) {
       {mobileMenuOpen && (
         <div
           id="mobile-nav-panel"
-          className="lg:hidden bg-[#0B0F17]/98 border-b border-slate-800 px-4 pt-3 pb-6 space-y-2 mt-3 shadow-2xl backdrop-blur-xl"
+          className="md:hidden bg-bg-primary/98 border-b border-border px-4 pt-4 pb-6 space-y-3 mt-3 shadow-2xl backdrop-blur-xl animate-in slide-in-from-top-2 duration-200"
         >
-          <div className="grid grid-cols-2 gap-2 pb-3 border-b border-slate-800/80">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-slate-900/60 rounded-md transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
+          <div className="flex flex-col gap-1 pb-3 border-b border-border">
+            {navLinks.map((link) => {
+              const sectionId = link.href.substring(1);
+              const isActive = activeSection === sectionId;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`px-3 py-2.5 text-sm font-mono rounded-lg transition-colors flex items-center justify-between ${
+                    isActive
+                      ? 'text-gold bg-gold/10 font-bold border border-gold/30'
+                      : 'text-text-secondary hover:text-text-primary hover:bg-surface/60'
+                  }`}
+                >
+                  <span>{link.label}</span>
+                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-gold" />}
+                </a>
+              );
+            })}
           </div>
+
           <div className="pt-2 flex flex-col gap-2">
             <a
               href={PERSONAL_INFO.cvPath}
               download="Angosom_Gebremedhin_Berhe_CV.pdf"
-              className="w-full py-2.5 px-4 rounded-md bg-amber-500 text-slate-950 text-center font-semibold text-sm flex items-center justify-center gap-2"
+              className="w-full py-2.5 px-4 rounded-lg bg-gold hover:bg-gold-light text-bg-primary font-mono font-bold text-xs flex items-center justify-center gap-2 transition-all"
             >
               <FileText className="w-4 h-4" />
               Download CV (PDF)
@@ -137,7 +145,7 @@ export function Navbar({ activeSection }: NavbarProps) {
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-2 px-4 rounded-md border border-slate-700 text-slate-200 text-center text-sm font-medium hover:bg-slate-800/60"
+              className="w-full py-2.5 px-4 rounded-lg border border-border text-text-primary text-center text-xs font-mono font-medium hover:bg-surface transition-all"
             >
               Contact Direct
             </a>

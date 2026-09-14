@@ -1,15 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { Capabilities } from './components/Capabilities';
 import { ProjectsSection } from './components/ProjectsSection';
-import { BeyondCode } from './components/BeyondCode';
-import { HowIWork } from './components/HowIWork';
-import { PracticalAI } from './components/PracticalAI';
+import { SkillsAndCapabilities } from './components/SkillsAndCapabilities';
 import { ExperienceTimeline } from './components/ExperienceTimeline';
-import { LeadershipSection } from './components/LeadershipSection';
-import { SkillsSection } from './components/SkillsSection';
-import { EducationSection } from './components/EducationSection';
 import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -18,20 +12,8 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    const sections = [
-      'home',
-      'work',
-      'capabilities',
-      'beyond-code',
-      'how-i-work',
-      'ai-research',
-      'experience',
-      'leadership',
-      'skills',
-      'education',
-      'about',
-      'contact',
-    ];
+    // Condensed down to 5 trackable main section IDs
+    const sections = ['home', 'work', 'expertise', 'experience', 'about', 'contact'];
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -56,21 +38,32 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0B0F17] text-slate-100 selection:bg-amber-500/25 selection:text-amber-200">
+    <div className="min-h-screen bg-bg-primary text-text-primary selection:bg-gold/25 selection:text-gold-light font-sans antialiased">
       <Navbar activeSection={activeSection} />
       <main id="main-content">
-        <Hero />
-        <ProjectsSection />
-        <Capabilities />
-        <BeyondCode />
-        <HowIWork />
-        <PracticalAI />
-        <ExperienceTimeline />
-        <LeadershipSection />
-        <SkillsSection />
-        <EducationSection />
-        <AboutSection />
-        <ContactSection />
+        <section id="home">
+          <Hero />
+        </section>
+
+        <section id="work" className="py-20 border-t border-border/40">
+          <ProjectsSection />
+        </section>
+
+        <section id="expertise" className="py-20 bg-bg-secondary/50 border-t border-border/40">
+          <SkillsAndCapabilities />
+        </section>
+
+        <section id="experience" className="py-20 border-t border-border/40">
+          <ExperienceTimeline />
+        </section>
+
+        <section id="about" className="py-20 bg-bg-secondary/50 border-t border-border/40">
+          <AboutSection />
+        </section>
+
+        <section id="contact" className="py-20 border-t border-border/40">
+          <ContactSection />
+        </section>
       </main>
       <Footer />
     </div>
