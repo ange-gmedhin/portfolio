@@ -7,9 +7,10 @@ interface NavbarProps {
 }
 
 const NAV_LINKS = [
+  { label: 'About', href: '#about' },
+  { label: 'Capabilities', href: '#capabilities' },
   { label: 'Work', href: '#work' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Capabilities', href: '#capabilities' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -70,14 +71,17 @@ export function Navbar({ activeSection }: NavbarProps) {
         >
           <div className="flex h-14 items-center justify-between gap-3 px-3 sm:px-4">
             {/* ---- Brand ---- */}
-            <a href="#home" id="brand-logo" className="group flex min-w-0 items-center gap-2.5">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-brown-soft/30 bg-brown/15 font-mono text-xs font-semibold text-brown-soft transition-colors group-hover:border-brown-soft/60">
-                AGB
-              </span>
-              <span className="hidden truncate font-display text-sm font-semibold text-text-on-dark lg:block">
-                Angosom Gebremedhin
-              </span>
-            </a>
+<a href="#home" id="brand-logo" className="group flex min-w-0 items-center gap-2.5">
+  <img
+    src="/favicon_circle.png"
+    alt="Angosom Gebremedhin"
+    className="h-8 w-8 shrink-0 rounded-lg object-contain transition-transform group-hover:scale-105"
+  />
+
+  <span className="hidden truncate font-display text-sm font-semibold text-text-on-dark lg:block">
+    Angosom Gebremedhin
+  </span>
+</a>
 
             {/* ---- Desktop nav (centered) ---- */}
             <nav

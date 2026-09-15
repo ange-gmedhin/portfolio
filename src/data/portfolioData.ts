@@ -13,8 +13,8 @@ export const PERSONAL_INFO = {
   headline: 'Full-Stack Engineer × Technical Project Manager',
   coreStatement: 'I build software from idea to production.',
   supportingStatement:
-    'Full-Stack Engineer and Technical Project Manager based in Ethiopia. I bridge product requirements, robust software architecture, hands-on full-stack development, production hosting, and practical engineering leadership.',
-  quote: '"I don\'t just write code. I take software from idea to production."',
+    'Full-Stack Engineer and Technical Project Manager based in Ethiopia, working across requirements, architecture, development, deployment, and delivery.',
+  quote: '"I build software from idea to production."',
   email: 'ange.gmedhin@gmail.com',
   phone: '+251 97 808 1418',
   location: 'Mekelle / Addis Ababa, Ethiopia',
@@ -26,23 +26,23 @@ export const PERSONAL_INFO = {
 export const PROOF_POINTS: ProofPoint[] = [
   {
     metric: '3+',
-    label: 'Years Professional Experience',
-    description: 'Engineering resilient production systems and leading agile software lifecycles.',
+    label: 'Years Experience',
+    description: 'Building and maintaining production software.',
   },
   {
     metric: '8+',
-    label: 'Applications Built & Deployed',
-    description: 'Full-stack platforms, offline PWAs, and enterprise systems delivered to production.',
+    label: 'Applications Built',
+    description: 'Web platforms, PWAs, management systems, and business tools.',
   },
   {
     metric: '4+',
-    label: 'Production Projects Led End-to-End',
-    description: 'From initial client requirements and system architecture to live server deployment.',
+    label: 'Projects Led',
+    description: 'From requirements and architecture to deployment and delivery.',
   },
   {
     metric: '8+',
     label: 'Developers & Interns Mentored',
-    description: 'Guiding junior engineers and university interns through code reviews and agile delivery.',
+    description: 'Supporting junior developers through real production work.',
   },
 ];
 
@@ -51,11 +51,12 @@ export const CAPABILITIES: Capability[] = [
     id: 'build',
     title: 'Build',
     subtitle: 'Full-Stack Engineering',
-    description: 'Design and develop responsive, reliable full-stack web applications and resilient systems from clean foundations.',
+    description:
+      'Build reliable web applications across frontend, backend, APIs, and databases.',
     bullets: [
-      'Modern React interfaces with modular TypeScript',
-      'Robust backend services with Laravel, CodeIgniter & Node.js',
-      'Defensive RESTful API architecture & schema design',
+      'React and TypeScript interfaces',
+      'Laravel, CodeIgniter, PHP, and Node.js backends',
+      'REST APIs and database-driven systems',
     ],
     icon: 'Layers',
   },
@@ -63,23 +64,25 @@ export const CAPABILITIES: Capability[] = [
     id: 'lead',
     title: 'Lead',
     subtitle: 'Technical Project Management',
-    description: 'Take software projects across the complete lifecycle from initial client discovery and architecture to sprint execution and delivery.',
+    description:
+      'Take projects from client requirements through planning, development, and delivery.',
     bullets: [
-      'Sprint backlog grooming & sprint planning with Jira',
-      'Agile/Scrum ceremonies & milestone tracking',
-      'Direct client communication & scope containment',
+      'Requirements and scope planning',
+      'Jira, sprint planning, and delivery tracking',
+      'Client communication and technical coordination',
     ],
     icon: 'Compass',
   },
   {
     id: 'deploy',
     title: 'Deploy',
-    subtitle: 'Hosting & Production Infrastructure',
-    description: 'Provision hosting environments, configure servers, manage domains, and maintain zero-downtime production operations.',
+    subtitle: 'Hosting & Production',
+    description:
+      'Take applications from a repository to a working production environment.',
     bullets: [
-      'Hostinger & Linux VPS server provisioning',
-      'Domain management, DNS routing & record setup',
-      'SSL/TLS certificate automation & HTTPS enforcement',
+      'Hostinger and Linux VPS environments',
+      'Domains, DNS, and SSL configuration',
+      'Production deployment and maintenance',
     ],
     icon: 'Server',
   },
@@ -87,23 +90,25 @@ export const CAPABILITIES: Capability[] = [
     id: 'integrate',
     title: 'Integrate',
     subtitle: 'Payments, APIs & Workflows',
-    description: 'Connect software systems to external payment gateways, automated transactional email pipelines, and 3rd-party services.',
+    description:
+      'Connect applications with payments, email services, and third-party APIs.',
     bullets: [
-      'Stripe one-time and recurring subscription payments',
-      'Webhook listeners with idempotency & error handling',
-      'Automated transactional emails & operational notifications',
+      'Stripe one-time and recurring payments',
+      'Webhooks and API integrations',
+      'Transactional email and notifications',
     ],
     icon: 'Zap',
   },
   {
     id: 'optimize',
     title: 'Optimize',
-    subtitle: 'Databases & System Performance',
-    description: 'Engineer database models and application performance to prevent bottlenecks before they reach paying customers.',
+    subtitle: 'Databases & Performance',
+    description:
+      'Improve data models, queries, and application performance as systems grow.',
     bullets: [
-      'MySQL, SQLite & MongoDB schema design',
-      'Query indexing, execution plan analysis & optimization',
-      'Client-side caching & asset payload minimization',
+      'MySQL, SQLite, and MongoDB',
+      'Indexes and query optimization',
+      'Caching and efficient data handling',
     ],
     icon: 'Gauge',
   },
@@ -111,11 +116,12 @@ export const CAPABILITIES: Capability[] = [
     id: 'mentor',
     title: 'Mentor',
     subtitle: 'Engineering Team Growth',
-    description: 'Cultivate strong engineering habits by actively coaching junior developers and university interns through real codebase tasks.',
+    description:
+      'Help junior developers and interns build practical engineering habits.',
     bullets: [
-      'Constructive code reviews & architectural guidance',
-      'Hands-on Git branching & PR workflow training',
-      'Translating academic theory into production readiness',
+      'Code reviews and technical guidance',
+      'Git and pull request workflows',
+      'Connecting academic knowledge with production work',
     ],
     icon: 'Users',
   },
@@ -123,11 +129,12 @@ export const CAPABILITIES: Capability[] = [
     id: 'explore-ai',
     title: 'Explore AI',
     subtitle: 'Applied & Practical AI',
-    description: 'Investigate and apply machine intelligence where it solves genuine product challenges rather than adding AI for decoration.',
+    description:
+      'Explore practical AI applications where they can solve real product problems.',
     bullets: [
-      'Traveler preference modeling & recommendation engines',
-      'Knowledge retrieval & context-grounded workflows',
-      'Researching practical AI integration for regional ecosystems',
+      'Recommendation systems',
+      'Context-aware AI workflows',
+      'Applied AI research for tourism and local services',
     ],
     icon: 'BrainCircuit',
   },
@@ -142,134 +149,250 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
     tag: 'Production Flagship',
     isFlagship: true,
     summary:
-      'A complete multi-tier restaurant management ecosystem supporting 7 languages, online customer bookings, real-time waiter ordering, automated kitchen/bar routing, and dynamic bill splitting.',
+      'A multilingual restaurant platform covering online bookings, waiter ordering, kitchen and bar workflows, billing, and staff management.',
     problem:
-      'High-volume multi-lingual dining operations suffered from fragmented guest bookings, order communication bottlenecks between floor staff and kitchen/bar stations, and tedious manual bill calculations across large groups.',
+      'The restaurant needed a single system to manage bookings, table orders, kitchen and bar communication, and group billing.',
     solution:
-      'Architected and deployed a unified restaurant operating ecosystem: a 7-language guest booking/ordering interface, mobile-optimized floor waiter ordering, split kitchen/bar routing screens, automated bill splitting, and role-based staff administration.',
-    role: 'Lead Full-Stack Engineer & System Architect (requirements, full-stack development, database schema, role permissions, live deployment).',
-    technologies: ['React', 'Laravel', 'PHP', 'MySQL', 'REST APIs', 'WebSockets', 'Tailwind CSS', 'Hostinger'],
+      'Built a unified platform with a 7-language customer interface, mobile waiter ordering, kitchen and bar routing, billing, and role-based staff access.',
+    role:
+      'Lead Full-Stack Engineer & System Architect across requirements, development, database design, permissions, and deployment.',
+    technologies: [
+      'React',
+      'Laravel',
+      'PHP',
+      'MySQL',
+      'REST APIs',
+      'WebSockets',
+      'Tailwind CSS',
+      'Hostinger',
+    ],
     difficulties:
-      'Synchronizing high-concurrency order updates across waiter handhelds and kitchen display terminals without race conditions, preventing double-billing on split checks, and maintaining instant UI responsiveness across 7 languages.',
+      'Keeping order updates consistent across waiter devices and kitchen displays while supporting multilingual interfaces and split billing.',
     result:
-      'Handled 4,350+ active users and guest bookings with zero lost kitchen tickets, reduced order-to-kitchen latency dramatically, and streamlined floor operations during peak dining hours.',
+      'Used for 4,350+ bookings and customer interactions across a multilingual restaurant operation.',
     learning:
-      'Designing enterprise software requires prioritizing physical work environments: kitchen noise, speed of touch inputs under pressure, and linguistic diversity must shape the architecture as much as database design.',
+      'Software for physical businesses must reflect how people actually work, especially under time pressure.',
     metrics: [
-      { label: 'Active Users / Bookings', value: '4,350+' },
-      { label: 'Supported Languages', value: '7 Languages' },
-      { label: 'Integrated Roles', value: 'Admin, Waiter, Kitchen, Bar' },
+      { label: 'Bookings / Users', value: '4,350+' },
+      { label: 'Languages', value: '7' },
+      { label: 'Staff Roles', value: '4' },
     ],
     workflow: [
-      { title: '1. Customer', description: 'Selects language (7 options), reserves table or browses digital menu for pre-order.' },
-      { title: '2. Booking & Order', description: 'System validates table availability, generates reservation token, alerts host.' },
-      { title: '3. Waiter Terminal', description: 'Floor staff captures table orders on mobile/tablet with table-side modifications.' },
-      { title: '4. Kitchen / Bar Routing', description: 'Orders automatically split: drinks sent to Bar display, hot meals to Kitchen.' },
-      { title: '5. Automated Billing', description: 'Auto splits group checks, calculates taxes/service, and prepares payment receipt.' },
-      { title: '6. Management Portal', description: 'Real-time inventory deduction, daily revenue analytics, and staff audit logs.' },
+      {
+        title: '1. Customer',
+        description:
+          'Selects a language, books a table, or browses the digital menu.',
+      },
+      {
+        title: '2. Booking & Order',
+        description:
+          'The system manages availability and sends orders into the restaurant workflow.',
+      },
+      {
+        title: '3. Waiter',
+        description:
+          'Staff captures and updates table orders from mobile devices.',
+      },
+      {
+        title: '4. Kitchen / Bar',
+        description:
+          'Orders are routed to the appropriate preparation station.',
+      },
+      {
+        title: '5. Billing',
+        description:
+          'The system calculates and manages group bills and receipts.',
+      },
+      {
+        title: '6. Management',
+        description:
+          'Staff manage operations, records, and reports from the administration side.',
+      },
     ],
     diagramType: 'restaurant',
   },
+
   {
     id: 'haile-aggregate',
     title: 'Haile Aggregate Production Management System',
-    subtitle: 'Offline-First Engineering in Low-Connectivity Sites',
+    subtitle: 'Offline-First Engineering for Low-Connectivity Sites',
     category: 'Industrial Management',
     tag: 'Offline-First PWA',
     isFlagship: true,
     summary:
-      'A resilient Progressive Web Application engineered for quarry and crushing sites operating in remote areas with unstable or non-existent internet connectivity.',
+      'An offline-first PWA for aggregate production and dispatch operations in areas with unreliable internet connectivity.',
     problem:
-      'Remote aggregate production quarries experience frequent network dropouts. Traditional cloud-only systems halted scale dispatching, lost haulage records, and caused massive manual ledger discrepancies between scale operators and central accounting.',
+      'Network interruptions could stop dispatch operations and create gaps between local records and central management.',
     solution:
-      'Engineered an offline-first PWA featuring persistent client-side storage, an asynchronous sync queue, automatic background reconciliation when network restores, granular role security, and instant client-side PDF/Excel dispatch reports.',
-    role: 'Lead Full-Stack Engineer (system architecture, service workers, local persistence engine, sync conflict resolution, production delivery).',
-    technologies: ['React', 'PWA', 'Service Workers', 'IndexedDB', 'Laravel', 'MySQL', 'PDF/Excel Engine'],
+      'Built an offline-capable application using local browser storage, a sync queue, background synchronization, role-based access, and report exports.',
+    role:
+      'Lead Full-Stack Engineer responsible for architecture, offline storage, synchronization, and production delivery.',
+    technologies: [
+      'React',
+      'PWA',
+      'Service Workers',
+      'IndexedDB',
+      'Laravel',
+      'MySQL',
+      'PDF / Excel',
+    ],
     difficulties:
-      'Designing a deterministic conflict-resolution engine that prevents duplicate truck weigh-in tickets and preserves sequential ticket numbers when multiple scale operators sync bulk transactions simultaneously after hours offline.',
+      'Keeping local transactions consistent and synchronizing them safely when connectivity returns.',
     result:
-      '100% operational uptime at quarry sites during network outages, eliminating dispatch delays and providing management with verified daily production and tonnage reports.',
+      'Allows site operations to continue during network interruptions and synchronizes records when the connection returns.',
     learning:
-      'In emerging and industrial markets, unstable connectivity is not an edge-case failure—it is the baseline reality. Offline-first architectures must be designed defensively from day one.',
+      'In low-connectivity environments, offline support should be part of the architecture from the beginning.',
     metrics: [
-      { label: 'Offline Resilience', value: '100% Functional' },
-      { label: 'Sync Architecture', value: 'Queue-Based Two-Way' },
-      { label: 'Export Formats', value: 'PDF & Excel Automated' },
+      { label: 'Architecture', value: 'Offline-First' },
+      { label: 'Local Storage', value: 'IndexedDB' },
+      { label: 'Reports', value: 'PDF & Excel' },
     ],
     workflow: [
-      { title: 'ONLINE', description: 'Connected state: transactions stream directly to central database in real time.' },
-      { title: 'LOCAL DATA', description: 'Every dispatch, truck weight, and aggregate grade written immediately to IndexedDB.' },
-      { title: 'OFFLINE', description: 'Network drops: app functions seamlessly, generates signed tickets with local sequences.' },
-      { title: 'SYNC QUEUE', description: 'Reconnection detected: background worker resolves conflicts and syncs batch transactions.' },
+      {
+        title: 'ONLINE',
+        description:
+          'Transactions are synchronized with the central system.',
+      },
+      {
+        title: 'LOCAL DATA',
+        description:
+          'Transactions are stored locally so work can continue without a connection.',
+      },
+      {
+        title: 'OFFLINE',
+        description:
+          'The application continues handling dispatch operations.',
+      },
+      {
+        title: 'SYNC',
+        description:
+          'Pending records are synchronized when connectivity returns.',
+      },
     ],
     diagramType: 'offline',
   },
+
   {
     id: 'misgana-charity',
     title: 'Misgana Charity & Donation Platform',
-    subtitle: 'Payments, Recurring Donors & Operational Transparency',
+    subtitle: 'Online Donations & Automated Operations',
     category: 'FinTech & Non-Profit',
-    tag: 'Production FinTech',
+    tag: 'Production Platform',
     isFlagship: true,
     summary:
-      'A secure international donation platform integrating Stripe for one-time and recurring contributions, automated donor notification pipelines, and multi-staff operational workflows.',
+      'A donation platform supporting one-time and recurring payments, automated notifications, and internal staff operations.',
     problem:
-      'The non-profit organization relied on disjointed payment methods and manual donor receipts, creating high drop-off rates for international supporters, tracking errors, and tedious administrative overhead.',
+      'The organization needed a simpler way to collect international donations and manage donor records and receipts.',
     solution:
-      'Built a modern, high-conversion donation portal with Stripe integration supporting both one-off gifts and monthly pledges, automated tax receipt generation, webhook-driven email notifications, and an internal portal used by 16+ staff members.',
-    role: 'Full-Stack Engineer (Stripe payment integration, webhook handlers, automated email workflows, staff dashboard, and server hosting).',
-    technologies: ['React', 'Node.js', 'Stripe API', 'Express', 'MySQL', 'RESTful APIs', 'Nodemailer', 'VPS Hosting'],
+      'Built a donation platform with Stripe payments, recurring contributions, webhook processing, automated emails, and an internal staff dashboard.',
+    role:
+      'Full-Stack Engineer responsible for payment integration, webhooks, email workflows, dashboard features, and deployment.',
+    technologies: [
+      'React',
+      'Node.js',
+      'Stripe API',
+      'Express',
+      'MySQL',
+      'REST APIs',
+      'Nodemailer',
+      'VPS Hosting',
+    ],
     difficulties:
-      'Guaranteeing webhook idempotency so donors are never double-billed during network retries, and designing secure subscription lifecycle management for recurring cancellations and card updates.',
+      'Handling payment events reliably and keeping donor records synchronized with Stripe events.',
     result:
-      'Established a trusted international donation pipeline actively operated by 16+ staff members, automating receipt delivery and providing real-time campaign reconciliation.',
+      'Supports 16+ staff members and automates key donation and donor-notification workflows.',
     learning:
-      'Payment architecture requires extreme discipline: never trust client-side state for amounts, always verify cryptographic webhook signatures, and build clear audit trails for every monetary event.',
+      'Payment systems require careful handling of events, records, and failure cases.',
     metrics: [
-      { label: 'Staff Operational Users', value: '16+ Members' },
-      { label: 'Payment Modalities', value: 'One-Time & Recurring' },
-      { label: 'Notification Delivery', value: 'Automated Real-time' },
+      { label: 'Staff Users', value: '16+' },
+      { label: 'Payments', value: 'One-Time & Recurring' },
+      { label: 'Notifications', value: 'Automated' },
     ],
     workflow: [
-      { title: '1. Donor Pledge', description: 'Supporter selects campaign, currency, and one-off or recurring monthly schedule.' },
-      { title: '2. Stripe Checkout', description: 'PCI-compliant card handling via Stripe Elements with 3D-Secure authentication.' },
-      { title: '3. Webhook Listener', description: 'Backend cryptographically validates payment event and creates persistent record.' },
-      { title: '4. Automated Receipt', description: 'Automated email dispatched with tax-deductible receipt PDF and donor reference.' },
-      { title: '5. Staff Dashboard', description: '16+ staff members track campaign balances, donor cohorts, and export reports.' },
+      {
+        title: '1. Donation',
+        description:
+          'A donor selects a campaign and contribution type.',
+      },
+      {
+        title: '2. Payment',
+        description:
+          'Stripe securely processes the payment.',
+      },
+      {
+        title: '3. Webhook',
+        description:
+          'The backend receives and verifies the payment event.',
+      },
+      {
+        title: '4. Notification',
+        description:
+          'The system sends the appropriate donor notification.',
+      },
+      {
+        title: '5. Dashboard',
+        description:
+          'Staff review donations and campaign records.',
+      },
     ],
     diagramType: 'payment',
   },
+
   {
     id: 'smart-tourism-tigray',
     title: 'Smart Tourism Tigray',
-    subtitle: 'Bridging Software Engineering & Intelligent Recommendation',
+    subtitle: 'Exploring Personalized Tourism Recommendations',
     category: 'Research & Development',
     tag: 'R&D Concept',
     isRnD: true,
     summary:
-      'An applied research and software architecture project exploring AI-driven personalized itineraries and heritage service discovery for regional tourism.',
+      'An applied research project exploring personalized itineraries and digital discovery for tourism in Tigray.',
     problem:
-      'Visitors to historical and cultural sites across Tigray face fragmented information, variable road conditions, and difficulty matching their limited schedule with certified local guides and heritage venues.',
+      'Tourists often need to combine limited time, interests, accessibility, locations, and local services when planning a trip.',
     solution:
-      'Researched and prototyped an intelligent recommendation system that synthesizes user travel constraints (duration, physical mobility, historical focus, budget) and matches them with verified local service providers into customized multi-day itineraries.',
-    role: 'System Architect & Applied AI Researcher (domain modeling, recommendation logic design, user preference heuristic algorithms, architectural blueprint).',
-    technologies: ['TypeScript', 'Python', 'AI Recommendation Algorithms', 'React', 'REST APIs', 'Graph Modeling'],
+      'Designed a recommendation approach that considers traveler preferences and tourism data to create more relevant itineraries.',
+    role:
+      'System Architect & Applied AI Researcher focused on domain modeling, recommendation logic, and system architecture.',
+    technologies: [
+      'TypeScript',
+      'Python',
+      'Recommendation Algorithms',
+      'React',
+      'REST APIs',
+      'Graph Modeling',
+    ],
     difficulties:
-      'Grounding recommendation algorithms in local geographic and logistical realities (seasonal accessibility, opening hours, local guide certification) rather than hallucinating theoretical routes.',
+      'Designing recommendations around real geographic, scheduling, and service constraints.',
     result:
-      'Produced a validated architectural blueprint and interactive prototype demonstrating how applied AI can drive tangible regional economic impact for local hospitality operators.',
+      'Produced an architecture and prototype for exploring personalized tourism recommendations.',
     learning:
-      'Practical AI is about contextual relevance, not model size. An intelligent system is only as valuable as the real-world operational accuracy of the data it connects.',
+      'Useful AI depends on relevant data and real-world context, not AI for its own sake.',
     metrics: [
-      { label: 'Project Status', value: 'Research & Development' },
-      { label: 'Architecture Type', value: 'Constraint-Aware RecSys' },
-      { label: 'Target Ecosystem', value: 'Local Guides & Hospitality' },
+      { label: 'Status', value: 'Research & Development' },
+      { label: 'Approach', value: 'Constraint-Aware' },
+      { label: 'Focus', value: 'Tourism & Local Services' },
     ],
     workflow: [
-      { title: 'User Preferences', description: 'Traveler enters duration, interest weighting (architecture, history, nature), and mobility.' },
-      { title: 'AI Recommendation', description: 'Algorithmic heuristic evaluates distance matrices, opening schedules, and ratings.' },
-      { title: 'Tourism Services', description: 'System queries verified local providers (certified guides, registered lodges, drivers).' },
-      { title: 'Personalized Itinerary', description: 'Outputs dynamic, day-by-day interactive itinerary with contact checkpoints.' },
+      {
+        title: 'User Preferences',
+        description:
+          'Traveler provides interests, duration, and practical constraints.',
+      },
+      {
+        title: 'Recommendation',
+        description:
+          'The system evaluates available tourism options against those preferences.',
+      },
+      {
+        title: 'Tourism Data',
+        description:
+          'Relevant locations and local services are considered.',
+      },
+      {
+        title: 'Itinerary',
+        description:
+          'The system produces a personalized travel plan.',
+      },
     ],
     diagramType: 'ai',
   },
@@ -280,49 +403,55 @@ export const ADDITIONAL_PROJECTS: AdditionalProject[] = [
     title: 'Multi-Tenant E-Commerce Portal',
     category: 'E-commerce Systems',
     description:
-      'Scalable digital storefront with dynamic catalog management, customer cart state persistence, checkout pipelines, and vendor inventory controls.',
+      'E-commerce platform with product management, persistent carts, checkout, and vendor inventory.',
     techStack: ['React', 'Laravel', 'MySQL', 'REST API', 'Tailwind CSS'],
-    highlights: 'Multi-vendor inventory separation, responsive mobile purchasing, and order status lifecycle tracking.',
+    highlights:
+      'Multi-vendor inventory, mobile purchasing, and order tracking.',
   },
   {
     title: 'Corporate Enterprise Management System',
     category: 'Management Systems',
     description:
-      'Internal operations suite for employee attendance, asset dispatch, departmental expense logging, and administrative approval workflows.',
+      'Internal platform for attendance, assets, expenses, and administrative workflows.',
     techStack: ['Laravel', 'PHP', 'MySQL', 'Bootstrap', 'Hostinger VPS'],
-    highlights: 'Strict role-based access control, departmental audit logs, and exportable financial summaries.',
+    highlights:
+      'Role-based access, audit records, and exportable reports.',
   },
   {
     title: 'Non-Profit Community Outreach Platform',
-    category: 'Non-profit Platforms',
+    category: 'Non-Profit Platforms',
     description:
-      'Centralized community portal for volunteer mobilization, event registration, and transparent public program updates.',
+      'Community platform for volunteer coordination, event registration, and public updates.',
     techStack: ['React', 'Node.js', 'REST API', 'MySQL'],
-    highlights: 'Automated volunteer scheduling, broadcast announcements, and public impact metrics.',
+    highlights:
+      'Volunteer scheduling, announcements, and public program information.',
   },
   {
     title: 'Multi-Station Restaurant POS & Kitchen Hub',
     category: 'Restaurant Systems',
     description:
-      'Dedicated kitchen ticket display and floor table layout management system built for high-throughput hospitality venues.',
+      'Restaurant system for table management, kitchen tickets, and real-time order updates.',
     techStack: ['React', 'WebSockets', 'PHP', 'MySQL'],
-    highlights: 'Real-time order state updates without page refreshes, table reassignment, and ticket timing alerts.',
+    highlights:
+      'Real-time order updates, table reassignment, and kitchen ticket tracking.',
   },
   {
     title: 'Undergraduate Thesis: Tour Guide Mobile Architecture',
     category: 'Offline-First & Mobile Architecture',
     description:
-      'Comprehensive system architecture for location-aware tourist navigation, offline geo-cached audio commentary, and heritage mapping.',
+      'Mobile architecture for location-aware tourism, offline geographic data, and heritage information.',
     techStack: ['Mobile Architecture', 'Geo-Caching', 'SQLite', 'Software Engineering'],
-    highlights: 'Graduated December 2022 with 3.94 / 4.00 GPA (Highest Distinction) from Microlink IT College.',
+    highlights:
+      'BSc Software Engineering thesis, completed in December 2022 with a 3.94 / 4.00 GPA.',
   },
   {
     title: 'Custom Content Management & Web Platforms',
     category: 'Web Platforms & CMS',
     description:
-      'Tailored headless and modular content platforms engineered for clients requiring rapid non-technical editorial control and reliable performance.',
+      'Custom websites and content platforms for organizations needing flexible editorial management.',
     techStack: ['WordPress', 'PHP', 'CodeIgniter', 'MySQL'],
-    highlights: 'Custom post types, secure admin permissions, caching optimization, and domain/DNS setup.',
+    highlights:
+      'Custom content structures, permissions, performance improvements, and domain setup.',
   },
 ];
 
@@ -335,13 +464,13 @@ export const WORK_EXPERIENCE: ExperienceCompany = {
       period: 'Apr 2025 – Present',
       isCurrent: true,
       summary:
-        'Promoted to lead production software engineering initiatives and technical project management across the full client and delivery lifecycle.',
+        'Leading software projects across requirements, technical planning, development, deployment, and client delivery.',
       responsibilities: [
-        'Lead 4+ production software projects from initial stakeholder discovery through architecture, development, testing, and deployment.',
-        'Manage full hosting infrastructure, VPS provisioning, domain setup, DNS routing, and SSL security across all client systems.',
-        'Direct agile/scrum processes using Jira: sprint planning, backlog grooming, risk management, and client status communication.',
-        'Mentor junior developers and university interns in full-stack engineering practices, defensive code reviews, and Git workflows.',
-        'Interface directly with clients to translate business requirements into technical scope and production architectures.',
+        'Lead 4+ production projects from requirements through deployment.',
+        'Manage hosting, VPS environments, domains, DNS, and SSL.',
+        'Coordinate sprints, backlogs, priorities, and client communication using Jira.',
+        'Mentor junior developers and university interns through production work.',
+        'Translate business requirements into practical technical solutions.',
       ],
     },
     {
@@ -349,13 +478,13 @@ export const WORK_EXPERIENCE: ExperienceCompany = {
       period: 'Jan 2023 – Jan 2025',
       isCurrent: false,
       summary:
-        'Built, deployed, and maintained robust web applications across frontend interfaces, backend services, and relational databases.',
+        'Developed and maintained web applications across frontend, backend, databases, and production environments.',
       responsibilities: [
-        'Engineered responsive web applications using React, Laravel, CodeIgniter, PHP, and MySQL.',
-        'Architected and consumed RESTful APIs with secure authentication, input validation, and role-based permissions.',
-        'Developed offline-capable Progressive Web Applications with local persistence and background synchronization.',
-        'Optimized database schemas, indexing strategies, and SQL queries to reduce page load latencies and server load.',
-        'Maintained web platforms, WordPress deployments, and business email infrastructure for corporate clients.',
+        'Built applications with React, Laravel, CodeIgniter, PHP, and MySQL.',
+        'Designed and integrated REST APIs with authentication and role-based access.',
+        'Built offline-capable PWAs using local storage and synchronization.',
+        'Improved database queries, schemas, and application performance.',
+        'Maintained WordPress sites, hosting environments, and business email systems.',
       ],
     },
   ],
@@ -369,7 +498,7 @@ export const EDUCATION_DATA = {
   honors: 'Highest Distinction',
   thesisTitle: 'Tour Guide Mobile App Architecture',
   thesisDescription:
-    'Researched and architected an offline-resilient mobile tour guide platform combining cached geographic datasets, location-aware points of interest, and localized audio playback.',
+    'Designed an offline-capable mobile tour guide architecture using location-aware data, cached content, and localized audio.',
 };
 
 export const DOCUMENTATION_ARTIFACTS: DocumentationArtifact[] = [
@@ -378,196 +507,369 @@ export const DOCUMENTATION_ARTIFACTS: DocumentationArtifact[] = [
     title: 'Requirements & Scope Matrix',
     category: 'Planning & Discovery',
     filename: 'docs/01-system-requirements-spec.md',
-    description: 'Transforming ambiguous client requests into testable functional specs, boundary constraints, and edge-case definitions.',
-    keyTakeaway: 'Prevents scope creep and aligns technical delivery with actual business expectations before a single line of code is written.',
-    previewCode: `# System Requirements Specification (SRS)
-Project: Production Restaurant Management System
-Scope: Floor Waiters, Kitchen Staff, Bar, & Online Guests
+    description:
+      'Turning client requests into clear functional requirements, constraints, and edge cases.',
+    keyTakeaway:
+      'Clear requirements reduce scope problems and align development with business needs.',
+    previewCode: `# System Requirements Specification
+Project: Restaurant Management System
 
 1. Functional Requirements:
-   - FR-101: System must support 7 localized languages with zero reload latency.
-   - FR-102: Waiter order dispatch must route drinks to Bar KDS and hot dishes to Kitchen KDS.
-   - FR-103: Automated bill splitting must preserve arithmetic precision and prevent split race conditions.
-2. Non-Functional Constraints:
-   - NFR-201: Offline resilience: cached tickets must persist locally in case of WiFi dropout.
-   - NFR-202: Ticket generation latency < 200ms under 50 concurrent staff terminals.`,
+   - Support multiple languages.
+   - Route waiter orders to the correct station.
+   - Support group bill splitting.
+
+2. Non-Functional Requirements:
+   - Preserve local transactions during connectivity loss.
+   - Keep common staff actions responsive.`,
   },
   {
     id: 'architecture',
     title: 'System Architecture Blueprint',
     category: 'System Design',
     filename: 'docs/02-architecture-blueprint.md',
-    description: 'Mapping data flow, network boundaries, decoupling mechanisms, and service separation across the application.',
-    keyTakeaway: 'Ensures maintainability, security, and clear separation of concerns across frontend, backend, and persistence tiers.',
-    previewCode: `┌─────────────────┐       ┌─────────────────┐       ┌─────────────────┐
-│  Client Tier    │       │  API & Logic    │       │  Data & Storage │
-│  (React / PWA)  │ ───►  │ (Laravel/Node)  │ ───►  │ (MySQL/Indexes) │
-└────────┬────────┘       └────────┬────────┘       └────────┬────────┘
-         │                         │                         │
-         ▼                         ▼                         ▼
-  [Service Worker]        [Role Middleware]         [Replication/Sync]
-  Local IndexedDB         JWT Auth & Guards         Audit Trail Logs`,
+    description:
+      'Mapping application layers, data flow, boundaries, and responsibilities.',
+    keyTakeaway:
+      'A clear architecture makes systems easier to maintain and extend.',
+    previewCode: `┌─────────────────┐
+│  Client Layer   │
+│  React / PWA    │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  API & Logic    │
+│ Laravel / Node  │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│ Data & Storage  │
+│ MySQL / SQLite  │
+└─────────────────┘`,
   },
   {
     id: 'api-spec',
     title: 'API Contracts & REST Schemas',
     category: 'Integration',
     filename: 'docs/03-api-contract-v1.json',
-    description: 'Explicit request/response payloads, error dictionaries, and webhook signature verification schemas.',
-    keyTakeaway: 'Guarantees reliable frontend-backend communication and seamless third-party service integration.',
+    description:
+      'Defining API requests, responses, errors, and integration boundaries.',
+    keyTakeaway:
+      'Clear API contracts keep frontend and backend development predictable.',
     previewCode: `POST /api/v1/orders/split-bill
-Content-Type: application/json
-Authorization: Bearer <staff_jwt>
 
 {
   "order_id": "ORD-48291",
   "table_number": 14,
   "split_type": "custom_items",
   "splits": [
-    { "seat_index": 1, "item_ids": [102, 105], "payment_method": "cash" },
-    { "seat_index": 2, "item_ids": [108, 114], "payment_method": "card" }
+    {
+      "seat_index": 1,
+      "item_ids": [102, 105]
+    }
   ]
 }
 
-Response (200 OK):
-{ "status": "success", "balance_remaining": 0.00, "receipt_tokens": ["RCT-991", "RCT-992"] }`,
+Response:
+{
+  "status": "success",
+  "balance_remaining": 0
+}`,
   },
   {
     id: 'database-design',
     title: 'Database Schema & Query Optimization',
     category: 'Persistence',
     filename: 'docs/04-schema-and-indexing.sql',
-    description: 'Normalized entity relationships, compound indexes for fast filtering, and transaction safety controls.',
-    keyTakeaway: 'Prevents locking bottlenecks during high-volume operations and guarantees data integrity.',
-    previewCode: `-- Aggregate Production & Scale Dispatch Schema
-CREATE TABLE \`scale_tickets\` (
-  \`id\` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  \`ticket_number\` VARCHAR(32) NOT NULL UNIQUE,
-  \`quarry_site_id\` INT UNSIGNED NOT NULL,
-  \`gross_tonnage\` DECIMAL(10,3) NOT NULL,
-  \`tare_tonnage\` DECIMAL(10,3) NOT NULL,
-  \`net_tonnage\` DECIMAL(10,3) GENERATED ALWAYS AS (\`gross_tonnage\` - \`tare_tonnage\`) STORED,
-  \`sync_status\` ENUM('pending', 'synced', 'conflict') DEFAULT 'pending',
-  \`created_at\` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  INDEX \`idx_site_created\` (\`quarry_site_id\`, \`created_at\`),
-  INDEX \`idx_sync_status\` (\`sync_status\`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;`,
+    description:
+      'Designing relationships, indexes, and queries for reliable application data.',
+    keyTakeaway:
+      'Good data modeling improves reliability and keeps applications responsive.',
+    previewCode: `CREATE TABLE scale_tickets (
+  id BIGINT UNSIGNED PRIMARY KEY,
+  ticket_number VARCHAR(32) NOT NULL UNIQUE,
+  quarry_site_id INT NOT NULL,
+  gross_tonnage DECIMAL(10,3) NOT NULL,
+  tare_tonnage DECIMAL(10,3) NOT NULL,
+  sync_status VARCHAR(20) DEFAULT 'pending',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+  INDEX idx_site_created (
+    quarry_site_id,
+    created_at
+  )
+);`,
   },
   {
     id: 'deployment-runbook',
     title: 'Production Deployment Runbook',
     category: 'Infrastructure',
     filename: 'docs/05-production-runbook.md',
-    description: 'Step-by-step procedures for server provisioning, domain DNS delegation, SSL certificates, and zero-downtime cutover.',
-    keyTakeaway: 'Eliminates deployment uncertainty, ensures reproducible server environments, and keeps business systems online.',
-    previewCode: `# Production Deployment Checklist
-1. Environment Configuration:
-   - Verify .env secrets and database connection pooling.
-   - Run database migrations: php artisan migrate --force
-2. Web Server & Reverse Proxy:
-   - Configure Nginx virtual host with HTTP/2 and gzip compression.
-   - Provision SSL via Let's Encrypt / Certbot: certbot --nginx -d app.example.com
-3. DNS & Domain Routing:
-   - Set A Record: @ -> 185.xxx.xxx.xxx (Hostinger / VPS IP)
-   - Set CNAME: www -> app.example.com
-   - Configure SPF & DMARC records for transactional email stability.
-4. Health Checks:
-   - Curl /api/health endpoint and verify 200 OK status.`,
+    description:
+      'Documenting repeatable steps for deployment, domains, SSL, and production configuration.',
+    keyTakeaway:
+      'A repeatable deployment process reduces errors and makes maintenance easier.',
+    previewCode: `# Production Deployment
+
+1. Configure environment variables
+2. Run database migrations
+3. Configure web server
+4. Set domain and DNS records
+5. Enable SSL / HTTPS
+6. Verify application health
+
+Deployment should be
+repeatable, documented,
+and easy to troubleshoot.`,
   },
   {
     id: 'user-workflows',
     title: 'User Workflows & State Machines',
     category: 'UX & Logic',
     filename: 'docs/06-state-machines.md',
-    description: 'Finite state machine diagrams showing exact transitions between states for orders, tickets, and payment flows.',
-    keyTakeaway: 'Guarantees that impossible business states (e.g. an unpaid order marked as completed) are rejected at the code level.',
-    previewCode: `Order State Machine:
-[DRAFT] ────► [SUBMITTED] ────► [IN_KITCHEN / IN_BAR]
-                   │                     │
-                   ▼                     ▼
-              [CANCELLED]          [READY_TO_SERVE]
-                                         │
-                                         ▼
-                                     [SERVED]
-                                         │
-                                         ▼
-                                [PAID / COMPLETED]`,
+    description:
+      'Defining valid transitions for orders, tickets, and payment workflows.',
+    keyTakeaway:
+      'Explicit states make business rules easier to understand and enforce.',
+    previewCode: `Order State:
+
+[DRAFT]
+   │
+   ▼
+[SUBMITTED]
+   │
+   ├──────► [CANCELLED]
+   │
+   ▼
+[IN PROGRESS]
+   │
+   ▼
+[READY]
+   │
+   ▼
+[SERVED]
+   │
+   ▼
+[PAID / COMPLETED]`,
   },
 ];
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     category: 'Frontend Engineering',
-    description: 'Building high-performance, accessible, and responsive user interfaces with modular architecture.',
+    description:
+      'Building responsive interfaces with reusable components and practical frontend architecture.',
     skills: [
-      { name: 'React', level: 'Core Production', note: 'Component design, hooks, state architecture' },
-      { name: 'TypeScript & JavaScript (ES6+)', level: 'Core Production', note: 'Type safety, async flows, DOM manipulation' },
-      { name: 'PWA (Progressive Web Apps)', level: 'Advanced', note: 'Service Workers, IndexedDB, offline-first logic' },
-      { name: 'Tailwind CSS', level: 'Core Production', note: 'Responsive design, fluid layouts, custom themes' },
-      { name: 'HTML5 / Modern CSS', level: 'Core Production', note: 'Semantic markup, accessibility, CSS Grid/Flexbox' },
-      { name: 'Bootstrap', level: 'Core Production', note: 'Rapid enterprise layouts & administrative dashboards' },
+      {
+        name: 'React',
+        level: 'Core Production',
+        note: 'Components, hooks, state architecture',
+      },
+      {
+        name: 'TypeScript & JavaScript',
+        level: 'Core Production',
+        note: 'Type safety, async flows, application logic',
+      },
+      {
+        name: 'PWA',
+        level: 'Advanced',
+        note: 'Service Workers, IndexedDB, offline-first logic',
+      },
+      {
+        name: 'Tailwind CSS',
+        level: 'Core Production',
+        note: 'Responsive layouts and design systems',
+      },
+      {
+        name: 'HTML5 / Modern CSS',
+        level: 'Core Production',
+        note: 'Semantic markup, accessibility, Grid, Flexbox',
+      },
+      {
+        name: 'Bootstrap',
+        level: 'Core Production',
+        note: 'Rapid layouts and administrative interfaces',
+      },
     ],
   },
+
   {
     category: 'Backend & APIs',
-    description: 'Designing scalable backend systems, business logic, data persistence, and API contracts.',
+    description:
+      'Designing backend services, business logic, APIs, and application integrations.',
     skills: [
-      { name: 'Laravel (PHP)', level: 'Core Production', note: 'Eloquent ORM, middleware, service containers, queues' },
-      { name: 'PHP & CodeIgniter', level: 'Core Production', note: 'MVC pattern, legacy modernization, fast execution' },
-      { name: 'Node.js & Express', level: 'Advanced', note: 'REST microservices, webhooks, asynchronous processing' },
-      { name: 'RESTful API Design', level: 'Core Production', note: 'Resource modeling, status codes, JWT authentication' },
-      { name: 'Webhook Integration', level: 'Core Production', note: 'Stripe, payment handlers, idempotent processing' },
+      {
+        name: 'Laravel',
+        level: 'Core Production',
+        note: 'Eloquent, middleware, services, queues',
+      },
+      {
+        name: 'PHP & CodeIgniter',
+        level: 'Core Production',
+        note: 'MVC applications and existing systems',
+      },
+      {
+        name: 'Node.js & Express',
+        level: 'Advanced',
+        note: 'APIs, webhooks, asynchronous processing',
+      },
+      {
+        name: 'RESTful API Design',
+        level: 'Core Production',
+        note: 'Resource design, authentication, validation',
+      },
+      {
+        name: 'Webhook Integration',
+        level: 'Core Production',
+        note: 'Payments and event-driven workflows',
+      },
     ],
   },
+
   {
     category: 'Databases & Data Modeling',
-    description: 'Structuring normalized relational schemas, optimizing query execution, and managing local offline data.',
+    description:
+      'Designing application data models and improving query performance.',
     skills: [
-      { name: 'MySQL', level: 'Core Production', note: 'Relational schema design, indexes, foreign keys, transactions' },
-      { name: 'Database Query Optimization', level: 'Advanced', note: 'Execution plan analysis, index tuning, avoiding N+1' },
-      { name: 'SQLite', level: 'Advanced', note: 'Local embedded storage, desktop/mobile app data stores' },
-      { name: 'MongoDB', level: 'Working Knowledge', note: 'Document stores & semi-structured application data' },
-      { name: 'IndexedDB', level: 'Advanced', note: 'Client-side browser database for offline PWA operations' },
+      {
+        name: 'MySQL',
+        level: 'Core Production',
+        note: 'Schemas, relationships, indexes, transactions',
+      },
+      {
+        name: 'Database Query Optimization',
+        level: 'Advanced',
+        note: 'Indexes, query analysis, N+1 prevention',
+      },
+      {
+        name: 'SQLite',
+        level: 'Advanced',
+        note: 'Local application storage',
+      },
+      {
+        name: 'MongoDB',
+        level: 'Working Knowledge',
+        note: 'Document-based application data',
+      },
+      {
+        name: 'IndexedDB',
+        level: 'Advanced',
+        note: 'Browser storage for offline applications',
+      },
     ],
   },
+
   {
     category: 'Infrastructure & Operations',
-    description: 'Taking code from repositories into secure, high-uptime production environments.',
+    description:
+      'Deploying and maintaining applications in real production environments.',
     skills: [
-      { name: 'Hostinger Hosting', level: 'Core Production', note: 'Shared & cloud hosting, cPanel, hPanel, public_html' },
-      { name: 'Linux VPS Environments', level: 'Advanced', note: 'Ubuntu server setup, SSH, process managers, Nginx' },
-      { name: 'Domain & DNS Configuration', level: 'Core Production', note: 'A records, CNAME, MX, TXT, SPF/DKIM records' },
-      { name: 'SSL / TLS Security', level: 'Core Production', note: 'Certbot, HTTPS redirection, security headers' },
-      { name: 'Docker Fundamentals', level: 'Working Knowledge', note: 'Containerization & isolated environment setups' },
-      { name: 'Production Email Configuration', level: 'Core Production', note: 'Domain-verified transactional & business emails' },
+      {
+        name: 'Hostinger Hosting',
+        level: 'Core Production',
+        note: 'Shared and cloud hosting environments',
+      },
+      {
+        name: 'Linux VPS',
+        level: 'Advanced',
+        note: 'Ubuntu, SSH, Nginx, process management',
+      },
+      {
+        name: 'Domain & DNS',
+        level: 'Core Production',
+        note: 'A, CNAME, MX, TXT, SPF, DKIM records',
+      },
+      {
+        name: 'SSL / TLS',
+        level: 'Core Production',
+        note: 'HTTPS, certificates, security configuration',
+      },
+      {
+        name: 'Docker',
+        level: 'Working Knowledge',
+        note: 'Containers and development environments',
+      },
+      {
+        name: 'Production Email',
+        level: 'Core Production',
+        note: 'Business and transactional email setup',
+      },
     ],
   },
+
   {
     category: 'Project Leadership & Tools',
-    description: 'Orchestrating software lifecycles, team collaboration, and client delivery.',
+    description:
+      'Planning software work, coordinating teams, and delivering projects.',
     skills: [
-      { name: 'Technical Project Management', level: 'Core Production', note: 'End-to-end delivery from requirements to release' },
-      { name: 'Agile & Scrum Methodologies', level: 'Core Production', note: 'Sprint planning, daily standups, retrospectives' },
-      { name: 'Jira & Backlog Management', level: 'Core Production', note: 'Epic breakdown, user stories, sprint tracking' },
-      { name: 'Git & Version Control', level: 'Core Production', note: 'Branching strategies, clean pull requests, code reviews' },
-      { name: 'Mentorship & Code Reviews', level: 'Core Production', note: 'Mentored 8+ junior developers and university interns' },
-      { name: 'Postman', level: 'Core Production', note: 'API contract testing, environment variables, validation' },
+      {
+        name: 'Technical Project Management',
+        level: 'Core Production',
+        note: 'Requirements to release',
+      },
+      {
+        name: 'Agile & Scrum',
+        level: 'Core Production',
+        note: 'Sprints, planning, standups, retrospectives',
+      },
+      {
+        name: 'Jira',
+        level: 'Core Production',
+        note: 'Backlogs, epics, stories, sprint tracking',
+      },
+      {
+        name: 'Git',
+        level: 'Core Production',
+        note: 'Branching, pull requests, code reviews',
+      },
+      {
+        name: 'Mentorship & Code Reviews',
+        level: 'Core Production',
+        note: 'Guidance for junior developers and interns',
+      },
+      {
+        name: 'Postman',
+        level: 'Core Production',
+        note: 'API testing and validation',
+      },
     ],
   },
+
   {
     category: 'Web Platforms',
-    description: 'Applying the right platform according to the specific business problem and budget.',
+    description:
+      'Choosing practical web technologies according to project needs and constraints.',
     skills: [
-      { name: 'WordPress', level: 'Advanced', note: 'Custom themes, performance tuning, security hardening, CMS' },
-      { name: 'Multi-Technology Synthesis', level: 'Core Production', note: 'React + Laravel + WordPress tailored to customer needs' },
+      {
+        name: 'WordPress',
+        level: 'Advanced',
+        note: 'Custom themes, CMS, performance, security',
+      },
+      {
+        name: 'Multi-Technology Synthesis',
+        level: 'Core Production',
+        note: 'React, Laravel, WordPress, and PHP',
+      },
     ],
   },
+
   {
     category: 'Emerging & Applied AI',
-    description: 'Exploring machine intelligence with a practical, problem-solving mindset.',
+    description:
+      'Exploring practical AI applications for real product and research problems.',
     skills: [
-      { name: 'Recommendation Systems', level: 'Working Knowledge', note: 'Constraint-aware recommendation algorithms (R&D)' },
-      { name: 'Contextual AI Workflows', level: 'Working Knowledge', note: 'Applied AI for tourism, discovery & automation' },
+      {
+        name: 'Recommendation Systems',
+        level: 'Working Knowledge',
+        note: 'Constraint-aware recommendation research',
+      },
+      {
+        name: 'Contextual AI Workflows',
+        level: 'Working Knowledge',
+        note: 'Tourism, discovery, and automation',
+      },
     ],
   },
 ];
