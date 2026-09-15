@@ -15,7 +15,8 @@ export const PERSONAL_INFO = {
   supportingStatement:
     'Full-Stack Engineer and Technical Project Manager based in Ethiopia. I bridge product requirements, robust software architecture, hands-on full-stack development, production hosting, and practical engineering leadership.',
   quote: '"I don\'t just write code. I take software from idea to production."',
-  email: 'angosomgmedhin120@gmail.com',
+  email: 'ange.gmedhin@gmail.com',
+  phone: '+251 97 808 1418',
   location: 'Mekelle / Addis Ababa, Ethiopia',
   cvPath: '/cv.pdf',
   githubUrl: 'https://github.com',

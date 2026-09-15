@@ -1,4 +1,4 @@
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, Mail } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export function Footer() {
@@ -7,115 +7,143 @@ export function Footer() {
   };
 
   return (
-    <footer id="site-footer" className="bg-bg-primary border-t border-border py-16 text-text-muted font-mono text-xs">
+    <footer
+      id="site-footer"
+      className="border-t border-border bg-bg-primary py-14 text-text-muted"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-border">
-          {/* Brand Col */}
-          <div className="md:col-span-6 space-y-3 font-sans">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded bg-surface border border-border flex items-center justify-center font-mono font-bold text-gold text-xs">
-                AGB
-              </div>
-              <span className="font-display font-bold text-base text-text-primary">
-                {PERSONAL_INFO.name}
-              </span>
-            </div>
-            <p className="text-xs text-text-secondary max-w-md leading-relaxed font-mono">
-              "I don't just write code. I take software from idea to production." Full-Stack Engineer and Technical Project Lead based in Ethiopia.
+
+        {/* Main footer */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12">
+
+          {/* Identity */}
+          <div className="md:col-span-6">
+            <a
+              href="#home"
+              className="inline-block font-display font-bold text-lg text-text-primary hover:text-gold transition-colors"
+            >
+              {PERSONAL_INFO.name}
+            </a>
+
+            <p className="mt-4 max-w-md text-sm leading-7 text-text-secondary">
+              Full-Stack Engineer and Project Lead building and delivering
+              digital products from requirements to production.
             </p>
-            <div className="flex items-center gap-4 text-xs font-mono pt-2 text-text-muted">
-              <span className="flex items-center gap-1.5 text-emerald-400">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" /> Hostinger / VPS Production Ready
-              </span>
-              <span>•</span>
-              <span>SPA React + Vite</span>
-            </div>
+
+            <p className="mt-5 text-xs text-text-muted">
+              Based in {PERSONAL_INFO.location}
+            </p>
           </div>
 
-          {/* Quick Nav Col */}
-          <div className="md:col-span-3 space-y-2">
-            <div className="text-text-primary font-bold uppercase text-[11px] tracking-wider mb-3">
-              Navigation
-            </div>
-            <ul className="space-y-1.5">
-              <li>
-                <a href="#work" className="hover:text-gold transition-colors">
-                  Engineering Case Studies
-                </a>
-              </li>
-              <li>
-                <a href="#capabilities" className="hover:text-gold transition-colors">
-                  What I Actually Do
-                </a>
-              </li>
-              <li>
-                <a href="#beyond-code" className="hover:text-gold transition-colors">
-                  Beyond Code (Hosting & Ops)
-                </a>
-              </li>
-              <li>
-                <a href="#how-i-work" className="hover:text-gold transition-colors">
-                  How I Work & Docs
-                </a>
-              </li>
-              <li>
-                <a href="#leadership" className="hover:text-gold transition-colors">
-                  Leadership (Requirements to Release)
-                </a>
-              </li>
-              <li>
-                <a href="#skills" className="hover:text-gold transition-colors">
-                  Skills & Technologies
-                </a>
-              </li>
-            </ul>
+          {/* Navigation */}
+          <div className="md:col-span-3">
+            <h3 className="mb-4 text-[11px] font-mono font-semibold uppercase tracking-[0.15em] text-text-primary">
+              Navigate
+            </h3>
+
+            <nav className="flex flex-col items-start gap-2.5 text-sm">
+              <a
+                href="#home"
+                className="hover:text-gold transition-colors"
+              >
+                Home
+              </a>
+
+              <a
+                href="#about"
+                className="hover:text-gold transition-colors"
+              >
+                About
+              </a>
+
+              <a
+                href="#expertise"
+                className="hover:text-gold transition-colors"
+              >
+                Expertise
+              </a>
+
+              <a
+                href="#work"
+                className="hover:text-gold transition-colors"
+              >
+                Selected Work
+              </a>
+
+              <a
+                href="#contact"
+                className="hover:text-gold transition-colors"
+              >
+                Contact
+              </a>
+            </nav>
           </div>
 
-          {/* Contact Col */}
-          <div className="md:col-span-3 space-y-2">
-            <div className="text-text-primary font-bold uppercase text-[11px] tracking-wider mb-3">
-              Direct Contact
-            </div>
-            <div className="space-y-2">
+          {/* Connect */}
+          <div className="md:col-span-3">
+            <h3 className="mb-4 text-[11px] font-mono font-semibold uppercase tracking-[0.15em] text-text-primary">
+              Connect
+            </h3>
+
+            <div className="flex flex-col items-start gap-3 text-sm">
+
               <a
                 href={`mailto:${PERSONAL_INFO.email}`}
-                className="block text-gold hover:underline break-all transition-colors"
+                className="inline-flex items-center gap-2 hover:text-gold transition-colors break-all"
               >
-                {PERSONAL_INFO.email}
+                <Mail className="w-4 h-4 shrink-0" />
+                <span>{PERSONAL_INFO.email}</span>
               </a>
-              <div className="text-text-muted text-[11px]">
-                Location: {PERSONAL_INFO.location}
-              </div>
-              <div className="pt-2">
+
+              {PERSONAL_INFO.linkedinUrl && (
                 <a
-                  href={PERSONAL_INFO.cvPath}
-                  download="Angosom_Gebremedhin_Berhe_CV.pdf"
-                  className="inline-flex items-center gap-1.5 text-text-primary hover:text-gold transition-colors"
+                  href={PERSONAL_INFO.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:text-gold transition-colors"
                 >
-                  <span>Download Curriculum Vitae (PDF)</span>
+                  <Linkedin className="w-4 h-4" />
+                  <span>LinkedIn</span>
                 </a>
-              </div>
+              )}
+
+              {PERSONAL_INFO.githubUrl && (
+                <a
+                  href={PERSONAL_INFO.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:text-gold transition-colors"
+                >
+                  <Github className="w-4 h-4" />
+                  <span>GitHub</span>
+                </a>
+              )}
+
+              <a
+                href={PERSONAL_INFO.cvPath}
+                download="Angosom_Gebremedhin_Berhe_CV.pdf"
+                className="mt-1 text-text-primary hover:text-gold transition-colors"
+              >
+                Download CV
+              </a>
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-[11px] text-text-muted">
-          <div>
-            © {new Date().getFullYear()} Angosom Gebremedhin Berhe. All rights reserved.
-          </div>
+        <div className="border-t border-border pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <p className="text-[11px] font-mono text-text-muted">
+            © {new Date().getFullYear()} {PERSONAL_INFO.name}
+          </p>
 
-          <div className="flex items-center gap-6">
-            <span className="hidden sm:inline">Engineered for Hostinger / VPS Production</span>
-            <button
-              type="button"
-              onClick={scrollToTop}
-              className="flex items-center gap-1 text-text-secondary hover:text-gold transition-colors cursor-pointer"
-            >
-              <span>Back to Top</span>
-              <ArrowUp className="w-3.5 h-3.5" />
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="inline-flex items-center gap-2 self-start sm:self-auto text-[11px] font-mono text-text-secondary hover:text-gold transition-colors"
+          >
+            <span>Back to top</span>
+            <ArrowUp className="w-3.5 h-3.5" />
+          </button>
         </div>
       </div>
     </footer>

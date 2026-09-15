@@ -1,167 +1,173 @@
-import { useState } from 'react';
-import {
-  AlertCircle,
-  Lightbulb,
-  CheckCircle2,
-  ShieldCheck,
-  Cpu,
-} from 'lucide-react';
+import { Lightbulb } from 'lucide-react';
 import { ProjectCaseStudy } from '../types/portfolio';
 import { ProjectWorkflowDiagram } from './ProjectWorkflowDiagram';
 
 interface ProjectCaseStudyCardProps {
   project: ProjectCaseStudy;
   index: number;
-  key?: string;
 }
 
-export function ProjectCaseStudyCard({ project, index }: ProjectCaseStudyCardProps) {
+export function ProjectCaseStudyCard({
+  project,
+  index,
+}: ProjectCaseStudyCardProps) {
   return (
     <article
       id={`case-study-${project.id}`}
-      className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-        project.isFlagship
-          ? 'bg-surface border-border shadow-xl shadow-black/40'
-          : project.isRnD
-          ? 'bg-surface/90 border-purple-800/40'
-          : 'bg-surface/80 border-border'
-      }`}
+      className="border-t border-border pt-10 lg:pt-14"
     >
-      {/* Case Study Header Banner */}
-      <div className="p-6 sm:p-8 border-b border-border bg-bg-primary/40">
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-          <div className="flex items-center gap-2.5">
-            <span className="font-mono text-xs text-gold font-bold bg-surface px-2.5 py-1 rounded border border-border">
-              CASE STUDY // 0{index + 1}
+      {/* Project heading */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+        <div className="lg:col-span-8">
+          <div className="flex items-center gap-4 mb-4">
+            <span className="text-sm font-mono text-gold">
+              {String(index + 1).padStart(2, '0')}
             </span>
-            <span
-              className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${
-                project.isRnD
-                  ? 'bg-purple-950/80 text-purple-300 border border-purple-700/60'
-                  : 'bg-gold/10 text-gold-light border border-gold/30'
-              }`}
-            >
-              {project.tag}
-            </span>
-            <span className="text-xs font-mono text-text-muted hidden sm:inline">
+
+            <span className="text-sm text-text-muted">
               {project.category}
             </span>
+
+            {project.isRnD && (
+              <span className="text-sm text-text-muted">
+                R&D
+              </span>
+            )}
           </div>
 
+          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight text-text-primary leading-tight">
+            {project.title}
+          </h3>
+
+          <p className="mt-3 text-lg text-text-secondary">
+            {project.subtitle}
+          </p>
+
+          <p className="mt-5 max-w-3xl text-base leading-relaxed text-text-secondary">
+            {project.summary}
+          </p>
+
           {project.metrics && (
-            <div className="flex items-center gap-4 text-xs font-mono">
-              {project.metrics.map((m, mIdx) => (
-                <div key={mIdx} className="bg-surface px-2.5 py-1 rounded border border-border">
-                  <span className="text-text-muted mr-1.5">{m.label}:</span>
-                  <span className="text-gold font-bold">{m.value}</span>
+            <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2">
+              {project.metrics.map((metric) => (
+                <div key={metric.label}>
+                  <span className="text-lg font-semibold text-text-primary">
+                    {metric.value}
+                  </span>
+
+                  <span className="ml-2 text-sm text-text-muted">
+                    {metric.label}
+                  </span>
                 </div>
               ))}
             </div>
           )}
         </div>
+      </div>
 
-        <h3 className="text-2xl sm:text-3xl font-display font-bold text-text-primary tracking-tight">
-          {project.title}
-        </h3>
-        <p className="text-sm sm:text-base text-gold-light font-mono mt-1">
-          {project.subtitle}
-        </p>
+      {/* Project visual */}
+      {project.image && (
+        <div className="mt-10 overflow-hidden border border-border">
+          <img
+            src={project.image}
+            alt={`${project.title} project`}
+            className="w-full h-auto"
+          />
+        </div>
+      )}
 
-        <p className="mt-3 text-text-secondary text-sm leading-relaxed max-w-4xl">
-          {project.summary}
-        </p>
+      {/* Story */}
+      <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+        <div className="lg:col-span-7 space-y-8">
+          <div>
+            <p className="text-sm font-medium text-gold mb-3">
+              THE CHALLENGE
+            </p>
 
-        {/* Tech Stack Pills */}
-        <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-border/60">
-          {project.technologies.map((tech) => (
+            <p className="text-sm sm:text-base leading-relaxed text-text-secondary">
+              {project.problem}
+            </p>
+          </div>
+
+          <div>
+            <p className="text-sm font-medium text-gold mb-3">
+              WHAT I DID
+            </p>
+
+            <p className="text-sm sm:text-base leading-relaxed text-text-secondary">
+              {project.solution}
+            </p>
+          </div>
+
+          <div>
+            <p className="text-sm font-medium text-gold mb-3">
+              MY ROLE
+            </p>
+
+            <p className="text-sm sm:text-base leading-relaxed text-text-secondary">
+              {project.role}
+            </p>
+          </div>
+        </div>
+
+        <div className="lg:col-span-5">
+          <div className="border-l border-border pl-6">
+            <p className="text-sm font-medium text-gold mb-3">
+              RESULT
+            </p>
+
+            <p className="text-sm sm:text-base leading-relaxed text-text-primary">
+              {project.result}
+            </p>
+
+            {project.difficulties && (
+              <div className="mt-8">
+                <p className="text-sm font-medium text-text-muted mb-3">
+                  Technical challenge
+                </p>
+
+                <p className="text-sm leading-relaxed text-text-secondary">
+                  {project.difficulties}
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Workflow */}
+      {project.diagramType && (
+        <div className="mt-12">
+          <ProjectWorkflowDiagram
+            diagramType={project.diagramType}
+          />
+        </div>
+      )}
+
+      {/* Technology */}
+      <div className="mt-8 pt-6 border-t border-border">
+        <div className="flex flex-wrap gap-x-4 gap-y-2">
+          {project.technologies.map((technology) => (
             <span
-              key={tech}
-              className="px-2.5 py-1 rounded-md bg-bg-primary border border-border text-[11px] font-mono text-text-secondary"
+              key={technology}
+              className="text-xs text-text-muted"
             >
-              {tech}
+              {technology}
             </span>
           ))}
         </div>
       </div>
 
-      {/* Visual Workflow Diagram Component */}
-      {project.diagramType && (
-        <div className="p-6 sm:p-8 bg-bg-primary/20 border-b border-border">
-          <ProjectWorkflowDiagram diagramType={project.diagramType} steps={project.workflow} />
+      {/* Optional insight */}
+      {project.learning && (
+        <div className="mt-8 flex gap-3 max-w-3xl">
+          <Lightbulb className="w-4 h-4 text-gold shrink-0 mt-1" />
+
+          <p className="text-sm leading-relaxed text-text-secondary">
+            {project.learning}
+          </p>
         </div>
       )}
-
-      {/* Case Study Deep Dive: Answering the 7 core engineering questions */}
-      <div className="p-6 sm:p-8 space-y-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* 1. Problem */}
-          <div className="p-5 rounded-xl bg-bg-primary/50 border border-border space-y-2">
-            <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-rose-400">
-              <AlertCircle className="w-4 h-4" />
-              <span>The Problem Context</span>
-            </div>
-            <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
-              {project.problem}
-            </p>
-          </div>
-
-          {/* 2. What Was Built */}
-          <div className="p-5 rounded-xl bg-bg-primary/50 border border-border space-y-2">
-            <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400">
-              <CheckCircle2 className="w-4 h-4" />
-              <span>The Engineering Solution</span>
-            </div>
-            <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
-              {project.solution}
-            </p>
-          </div>
-        </div>
-
-        {/* 3. Role & Execution Ownership */}
-        <div className="p-4 rounded-xl bg-surface border border-border flex flex-col sm:flex-row sm:items-center gap-3">
-          <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-gold shrink-0">
-            <ShieldCheck className="w-4 h-4" />
-            <span>My Engineering Role:</span>
-          </div>
-          <p className="text-xs sm:text-sm text-text-primary font-medium">
-            {project.role}
-          </p>
-        </div>
-
-        {/* 4 & 5. Technical Difficulties & Verified Results */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="p-5 rounded-xl bg-bg-primary/50 border border-border space-y-2">
-            <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-gold">
-              <Cpu className="w-4 h-4" />
-              <span>What Was Technically Difficult</span>
-            </div>
-            <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
-              {project.difficulties}
-            </p>
-          </div>
-
-          <div className="p-5 rounded-xl bg-bg-primary/50 border border-border space-y-2">
-            <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-cyan-400">
-              <CheckCircle2 className="w-4 h-4" />
-              <span>The Production Result</span>
-            </div>
-            <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
-              {project.result}
-            </p>
-          </div>
-        </div>
-
-        {/* 6. Key Engineering Learning */}
-        <div className="p-5 rounded-xl bg-gold/5 border border-gold/30 space-y-2">
-          <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-gold">
-            <Lightbulb className="w-4 h-4" />
-            <span>Key Engineering Takeaway</span>
-          </div>
-          <p className="text-xs sm:text-sm text-text-primary leading-relaxed italic">
-            "{project.learning}"
-          </p>
-        </div>
-      </div>
     </article>
   );
 }

@@ -1,268 +1,267 @@
-import { useState, type FormEvent } from 'react';
+import { useState } from 'react';
 import {
-  Mail,
-  Copy,
   Check,
+  Copy,
   FileText,
-  Linkedin,
   Github,
-  Send,
+  Linkedin,
+  Mail,
+  Phone,
   ArrowUpRight,
-  MessageSquare,
+  MapPin,
 } from 'lucide-react';
+
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export function ContactSection() {
-  const [copied, setCopied] = useState(false);
-  const [inquiryType, setInquiryType] = useState('Production Project');
-  const [senderName, setSenderName] = useState('');
-  const [senderOrg, setSenderOrg] = useState('');
-  const [senderMessage, setSenderMessage] = useState('');
+  const [copied, setCopied] = useState<'email' | 'phone' | null>(null);
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(PERSONAL_INFO.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
-  };
+  const handleCopy = async (
+    value: string,
+    type: 'email' | 'phone'
+  ) => {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(type);
 
-  const handleCreateEmailDraft = (e: FormEvent) => {
-    e.preventDefault();
-    const subject = encodeURIComponent(`[${inquiryType}] Inquiring with Angosom Gebremedhin Berhe`);
-    const body = encodeURIComponent(
-      `Hello Angosom,\n\nMy name is ${senderName || '[Your Name]'}${
-        senderOrg ? ` from ${senderOrg}` : ''
-      }.\n\nInquiry Details (${inquiryType}):\n${
-        senderMessage || 'I would like to discuss a potential software project / role.'
-      }\n\nLooking forward to speaking with you.\n\nBest regards,\n${senderName || ''}`
-    );
-    window.location.href = `mailto:${PERSONAL_INFO.email}?subject=${subject}&body=${body}`;
+      window.setTimeout(() => {
+        setCopied(null);
+      }, 2000);
+    } catch {
+      // Clipboard may be unavailable in some browsers.
+    }
   };
 
   return (
-    <section id="contact" className="py-24 border-b border-border bg-bg-primary relative">
+    <section
+      id="contact"
+      className="py-24 lg:py-32 border-t border-border"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-surface border border-border text-gold font-mono text-xs uppercase tracking-wider mb-3">
-            // Direct Communication
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-text-primary tracking-tight">
-            Initiate Contact
-          </h2>
-          <p className="mt-3 text-text-secondary text-base leading-relaxed font-sans">
-            Available for full-stack engineering roles, technical project leadership, international contracts, graduate research collaboration, and end-to-end system deliveries.
-          </p>
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          {/* Left: Contact Info & Channels */}
-          <div className="lg:col-span-5 space-y-6">
-            {/* Primary Email Card */}
-            <div className="p-6 rounded-2xl bg-surface/60 border border-border shadow-xl space-y-4">
-              <div className="flex items-center justify-between text-xs font-mono text-text-muted">
-                <span>PRIMARY EMAIL CHANNEL</span>
-                <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
-              </div>
+          {/* Left: Contact */}
+          <div className="lg:col-span-7">
+            <div className="max-w-3xl">
+              <p className="text-sm font-medium tracking-wide text-gold mb-4">
+                CONTACT
+              </p>
 
-              <div>
-                <span className="text-xs text-text-muted block mb-1">Direct Address:</span>
-                <div className="font-mono text-sm sm:text-base font-bold text-gold break-all">
-                  {PERSONAL_INFO.email}
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight text-text-primary leading-tight">
+                Let's talk.
+              </h2>
+
+              <p className="mt-5 text-base sm:text-lg leading-relaxed text-text-secondary">
+                If you'd like to discuss a project, engineering role,
+                research opportunity, or collaboration, you can reach me
+                directly.
+              </p>
+            </div>
+
+            {/* Contact details */}
+            <div className="mt-12 border-y border-border divide-y divide-border">
+
+              {/* Email */}
+              <div className="py-7 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+                <div className="flex items-start gap-4 min-w-0">
+                  <Mail className="w-5 h-5 text-gold mt-1 shrink-0" />
+
+                  <div className="min-w-0">
+                    <p className="text-sm text-text-muted">
+                      Email
+                    </p>
+
+                    <a
+                      href={`mailto:${PERSONAL_INFO.email}`}
+                      className="mt-1 block text-base sm:text-lg font-medium text-text-primary hover:text-gold transition-colors break-all"
+                    >
+                      {PERSONAL_INFO.email}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-5 shrink-0">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      handleCopy(PERSONAL_INFO.email, 'email')
+                    }
+                    className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-text-primary transition-colors cursor-pointer"
+                  >
+                    {copied === 'email' ? (
+                      <>
+                        <Check className="w-4 h-4 text-gold" />
+                        Copied
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-4 h-4" />
+                        Copy
+                      </>
+                    )}
+                  </button>
+
+                  <a
+                    href={`mailto:${PERSONAL_INFO.email}`}
+                    className="text-sm font-medium text-text-primary hover:text-gold transition-colors"
+                  >
+                    Email me
+                    <span className="ml-1">→</span>
+                  </a>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-2 pt-2">
-                <button
-                  type="button"
-                  id="copy-email-btn"
-                  onClick={handleCopyEmail}
-                  className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-bg-primary hover:bg-surface text-text-primary border border-border text-xs font-mono font-medium transition-all cursor-pointer"
-                >
-                  {copied ? (
-                    <>
-                      <Check className="w-4 h-4 text-emerald-400" />
-                      <span>Copied to Clipboard</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-4 h-4 text-text-muted" />
-                      <span>Copy Address</span>
-                    </>
-                  )}
-                </button>
+              {/* Phone */}
+              {PERSONAL_INFO.phone && (
+                <div className="py-7 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+                  <div className="flex items-start gap-4">
+                    <Phone className="w-5 h-5 text-gold mt-1 shrink-0" />
 
-                <a
-                  href={`mailto:${PERSONAL_INFO.email}`}
-                  id="direct-mailto-link"
-                  className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-gold hover:bg-gold/90 text-bg-primary text-xs font-mono font-bold transition-all shadow-md shadow-gold/10"
-                >
-                  <Mail className="w-4 h-4" />
-                  <span>Open Mail App</span>
-                </a>
-              </div>
+                    <div>
+                      <p className="text-sm text-text-muted">
+                        Phone
+                      </p>
+
+                      <a
+                        href={`tel:${PERSONAL_INFO.phone}`}
+                        className="mt-1 block text-base sm:text-lg font-medium text-text-primary hover:text-gold transition-colors"
+                      >
+                        {PERSONAL_INFO.phone}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-5 shrink-0">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handleCopy(PERSONAL_INFO.phone, 'phone')
+                      }
+                      className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-text-primary transition-colors cursor-pointer"
+                    >
+                      {copied === 'phone' ? (
+                        <>
+                          <Check className="w-4 h-4 text-gold" />
+                          Copied
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-4 h-4" />
+                          Copy
+                        </>
+                      )}
+                    </button>
+
+                    <a
+                      href={`tel:${PERSONAL_INFO.phone}`}
+                      className="text-sm font-medium text-text-primary hover:text-gold transition-colors"
+                    >
+                      Call me
+                      <span className="ml-1">→</span>
+                    </a>
+                  </div>
+                </div>
+              )}
+
             </div>
 
-            {/* CV Download Banner */}
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-gold/10 via-surface to-bg-primary border border-gold/30 space-y-3 shadow-lg">
-              <div className="flex items-center gap-2 text-xs font-mono text-gold font-bold uppercase">
-                <FileText className="w-4 h-4" />
-                <span>Formal Curriculum Vitae</span>
-              </div>
-              <h3 className="text-lg font-display font-bold text-text-primary">
-                Download Full Technical Resume
-              </h3>
-              <p className="text-xs text-text-secondary leading-relaxed font-sans">
-                Includes complete chronological employment records, project architectures, verified GPA (3.94 / 4.00), and technical proficiencies.
-              </p>
-              <a
-                href={PERSONAL_INFO.cvPath}
-                download="Angosom_Gebremedhin_Berhe_CV.pdf"
-                id="contact-cv-download"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-gold hover:bg-gold/90 text-bg-primary font-bold text-xs font-mono transition-all shadow-md shadow-gold/20 active:scale-95"
-              >
-                <FileText className="w-4 h-4" />
-                <span>Download CV (PDF)</span>
-              </a>
-            </div>
-
-            {/* Professional Profiles */}
-            <div className="grid grid-cols-2 gap-3">
+            {/* Secondary links */}
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
               <a
                 href={PERSONAL_INFO.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                id="contact-linkedin"
-                className="p-4 rounded-xl bg-surface/50 border border-border hover:border-gold/40 flex items-center justify-between group transition-colors"
+                className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-gold transition-colors"
               >
-                <div className="flex items-center gap-2.5">
-                  <Linkedin className="w-4 h-4 text-blue-400" />
-                  <span className="text-xs font-mono text-text-primary group-hover:text-gold transition-colors">
-                    LinkedIn
-                  </span>
-                </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-text-muted group-hover:text-gold transition-colors" />
+                <Linkedin className="w-4 h-4" />
+                LinkedIn
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
 
               <a
                 href={PERSONAL_INFO.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                id="contact-github"
-                className="p-4 rounded-xl bg-surface/50 border border-border hover:border-gold/40 flex items-center justify-between group transition-colors"
+                className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-gold transition-colors"
               >
-                <div className="flex items-center gap-2.5">
-                  <Github className="w-4 h-4 text-text-secondary" />
-                  <span className="text-xs font-mono text-text-primary group-hover:text-gold transition-colors">
-                    GitHub
-                  </span>
-                </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-text-muted group-hover:text-gold transition-colors" />
+                <Github className="w-4 h-4" />
+                GitHub
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+
+              <a
+                href={PERSONAL_INFO.cvPath}
+                download="Angosom_Gebremedhin_Berhe_CV.pdf"
+                className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-gold transition-colors"
+              >
+                <FileText className="w-4 h-4" />
+                Download CV
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
 
-          {/* Right: Direct Scope & Message Form */}
-          <div className="lg:col-span-7">
-            <div className="rounded-2xl bg-surface/60 border border-border p-6 sm:p-8 shadow-2xl">
-              <div className="flex items-center justify-between pb-4 mb-6 border-b border-border text-xs font-mono text-text-muted">
-                <span className="text-gold font-bold flex items-center gap-2">
-                  <MessageSquare className="w-4 h-4 text-gold" />
-                  <span>STRUCTURED INQUIRY LAUNCHER</span>
-                </span>
-                <span>Direct Client & Recruiter Form</span>
+          {/* Right: Availability */}
+          <aside className="lg:col-span-5 lg:flex lg:items-center">
+            <div className="w-full lg:border-l lg:border-border lg:pl-12">
+
+              <div className="flex items-center gap-3 mb-7">
+                <div className="flex items-center justify-center w-9 h-9 rounded-full border border-border">
+                  <span className="w-2 h-2 rounded-full bg-gold" />
+                </div>
+
+                <div>
+                  <p className="text-sm font-medium text-text-primary">
+                    Currently open to
+                  </p>
+
+                  <p className="text-xs text-text-muted mt-0.5">
+                    New opportunities and collaborations
+                  </p>
+                </div>
               </div>
 
-              <form onSubmit={handleCreateEmailDraft} className="space-y-5">
-                {/* Inquiry Type */}
-                <div>
-                  <label className="text-xs font-mono text-text-secondary block mb-2">
-                    Inquiry Classification:
-                  </label>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-xs">
-                    {[
-                      'Production Project',
-                      'Full-Time Role',
-                      'Technical Leadership',
-                      'R&D / Academic',
-                    ].map((type) => (
-                      <button
-                        key={type}
-                        type="button"
-                        onClick={() => setInquiryType(type)}
-                        className={`p-2 rounded-lg border text-center transition-colors cursor-pointer text-[11px] ${
-                          inquiryType === type
-                            ? 'bg-gold text-bg-primary font-bold border-gold'
-                            : 'bg-bg-primary text-text-muted border-border hover:border-border/80 hover:text-text-primary'
-                        }`}
-                      >
-                        {type}
-                      </button>
-                    ))}
-                  </div>
-                </div>
+              <ul className="space-y-4">
+                <li className="flex items-center gap-3 text-sm text-text-secondary">
+                  <span className="w-1 h-1 rounded-full bg-text-muted shrink-0" />
+                  Full-stack engineering
+                </li>
 
-                {/* Name & Org */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="inquiry-name" className="text-xs font-mono text-text-secondary block mb-1.5">
-                      Your Name / Representative:
-                    </label>
-                    <input
-                      id="inquiry-name"
-                      type="text"
-                      placeholder="e.g. Dr. Yohannes / Sarah Smith"
-                      value={senderName}
-                      onChange={(e) => setSenderName(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-bg-primary border border-border text-text-primary text-xs font-mono placeholder:text-text-muted/60 focus:outline-none focus:border-gold transition-colors"
-                    />
-                  </div>
+                <li className="flex items-center gap-3 text-sm text-text-secondary">
+                  <span className="w-1 h-1 rounded-full bg-text-muted shrink-0" />
+                  Project leadership
+                </li>
+
+                <li className="flex items-center gap-3 text-sm text-text-secondary">
+                  <span className="w-1 h-1 rounded-full bg-text-muted shrink-0" />
+                  Software projects
+                </li>
+
+                <li className="flex items-center gap-3 text-sm text-text-secondary">
+                  <span className="w-1 h-1 rounded-full bg-text-muted shrink-0" />
+                  Research collaboration
+                </li>
+              </ul>
+
+              <div className="mt-10 pt-7 border-t border-border">
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-4 h-4 text-gold mt-0.5 shrink-0" />
 
                   <div>
-                    <label htmlFor="inquiry-org" className="text-xs font-mono text-text-secondary block mb-1.5">
-                      Company / University / Organization:
-                    </label>
-                    <input
-                      id="inquiry-org"
-                      type="text"
-                      placeholder="e.g. Technology Venture / NGO"
-                      value={senderOrg}
-                      onChange={(e) => setSenderOrg(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-bg-primary border border-border text-text-primary text-xs font-mono placeholder:text-text-muted/60 focus:outline-none focus:border-gold transition-colors"
-                    />
+                    <p className="text-sm font-medium text-text-primary">
+                      Based in Ethiopia
+                    </p>
+
+                    <p className="mt-1 text-sm leading-relaxed text-text-muted">
+                      Working with teams and organizations internationally.
+                    </p>
                   </div>
                 </div>
+              </div>
 
-                {/* Message */}
-                <div>
-                  <label htmlFor="inquiry-message" className="text-xs font-mono text-text-secondary block mb-1.5">
-                    Project Scope or Position Summary:
-                  </label>
-                  <textarea
-                    id="inquiry-message"
-                    rows={4}
-                    placeholder="Briefly describe system requirements, timelines, technical expectations, or opportunity details..."
-                    value={senderMessage}
-                    onChange={(e) => setSenderMessage(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-bg-primary border border-border text-text-primary text-xs font-sans placeholder:text-text-muted/60 focus:outline-none focus:border-gold transition-colors leading-relaxed"
-                  />
-                </div>
-
-                <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <span className="text-[11px] font-mono text-text-muted">
-                    Generates an immediate pre-filled email draft to {PERSONAL_INFO.email}
-                  </span>
-                  <button
-                    type="submit"
-                    id="submit-inquiry-btn"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-gold hover:bg-gold/90 text-bg-primary font-bold text-xs font-mono tracking-wide transition-all shadow-md shadow-gold/20 active:scale-95 cursor-pointer shrink-0"
-                  >
-                    <Send className="w-3.5 h-3.5" />
-                    <span>Send Message Draft</span>
-                  </button>
-                </div>
-              </form>
             </div>
-          </div>
+          </aside>
+
         </div>
       </div>
     </section>

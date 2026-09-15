@@ -5,61 +5,55 @@ import {
   Linkedin,
   Mail,
   ExternalLink,
-  Layers3,
-  Server,
-  Users,
 } from 'lucide-react';
+
 import { PERSONAL_INFO, PROOF_POINTS } from '../data/portfolioData';
 
 export function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-bg-primary border-b border-border"
+      className="relative overflow-hidden bg-bg-primary"
     >
-      {/* Ambient background */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-gold/5 blur-[140px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/2 right-0 w-[300px] h-[300px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Main hero */}
+        <div className="min-h-[680px] lg:min-h-[720px] grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center py-24 md:py-32">
 
-        {/* =========================================================
-            HERO INTRO
-        ========================================================= */}
-        <div className="min-h-[720px] lg:min-h-[760px] grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center py-28 md:py-36">
-
-          {/* LEFT: MESSAGE */}
+          {/* LEFT: INTRODUCTION */}
           <div className="lg:col-span-7">
 
             {/* Role */}
-            <div className="inline-flex items-center gap-2.5 mb-7 px-3.5 py-2 rounded-full bg-surface border border-border text-xs font-mono uppercase tracking-wider text-text-secondary">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              Full-Stack Engineer · Project Lead
-            </div>
-
-            {/* Headline */}
-            <h1 className="max-w-4xl text-5xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight leading-[1.02] text-text-primary">
-              I build software
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-amber-300 to-yellow-200">
-                that works in the real world.
-              </span>
-            </h1>
-
-            {/* Supporting statement */}
-            <p className="mt-7 max-w-2xl text-base sm:text-lg leading-relaxed text-text-secondary">
-              I turn ideas and business requirements into production-ready
-              systems, handling everything from full-stack development to
-              deployment, infrastructure, and project delivery.
+            <p className="mb-6 text-sm font-medium tracking-wide text-gold">
+              FULL-STACK ENGINEER · PROJECT LEAD
             </p>
 
-            {/* CTA */}
+            {/* Name */}
+            <h1 className="max-w-4xl text-5xl sm:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-[1.05] text-text-primary">
+              Angosom
+              <br />
+              Gebremedhin Berhe
+            </h1>
+
+            {/* Main statement */}
+            <p className="mt-8 max-w-2xl text-2xl sm:text-3xl leading-snug font-medium text-text-primary">
+              I build and lead digital products
+              from requirements to production.
+            </p>
+
+            {/* Supporting text */}
+            <p className="mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-text-secondary">
+              I am a software engineer with 3+ years of experience building
+              web applications, business systems, APIs, and digital products
+              for real organizations.
+            </p>
+
+            {/* Actions */}
             <div className="mt-9 flex flex-wrap items-center gap-3">
 
               <a
                 href="#work"
-                id="hero-cta-work"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-gold hover:bg-gold/90 text-bg-primary font-semibold text-sm transition-all shadow-lg shadow-gold/10 hover:shadow-gold/20 active:scale-[0.98]"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-gold text-bg-primary font-semibold text-sm transition-colors hover:bg-gold/90"
               >
                 View my work
                 <ArrowDown className="w-4 h-4" />
@@ -68,227 +62,167 @@ export function Hero() {
               <a
                 href={PERSONAL_INFO.cvPath}
                 download="Angosom_Gebremedhin_Berhe_CV.pdf"
-                id="hero-cta-cv"
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg bg-surface hover:bg-surface/80 text-text-primary border border-border font-medium text-sm transition-all active:scale-[0.98]"
+                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg border border-border bg-surface text-text-primary font-medium text-sm transition-colors hover:bg-surface/70"
               >
                 <FileText className="w-4 h-4 text-gold" />
                 Download CV
               </a>
-
-              {/* Social links */}
-              <div className="flex items-center gap-1 ml-1 sm:ml-2">
-                <a
-                  href={`mailto:${PERSONAL_INFO.email}`}
-                  aria-label="Email Angosom"
-                  className="p-3 rounded-lg text-text-muted hover:text-gold hover:bg-surface transition-colors"
-                >
-                  <Mail className="w-[18px] h-[18px]" />
-                </a>
-
-                <a
-                  href={PERSONAL_INFO.linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  className="p-3 rounded-lg text-text-muted hover:text-gold hover:bg-surface transition-colors"
-                >
-                  <Linkedin className="w-[18px] h-[18px]" />
-                </a>
-
-                <a
-                  href={PERSONAL_INFO.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                  className="p-3 rounded-lg text-text-muted hover:text-gold hover:bg-surface transition-colors"
-                >
-                  <Github className="w-[18px] h-[18px]" />
-                </a>
-              </div>
             </div>
 
-            {/* Small credibility line */}
-            <div className="mt-9 flex items-center gap-3 text-xs text-text-muted">
-              <div className="h-px w-8 bg-border" />
-              <span>
-                Based in Ethiopia · Building systems for real businesses
-              </span>
+            {/* Social links */}
+            <div className="mt-7 flex items-center gap-1">
+
+              <a
+                href={`mailto:${PERSONAL_INFO.email}`}
+                aria-label="Email Angosom"
+                className="p-2.5 rounded-md text-text-muted hover:text-gold transition-colors"
+              >
+                <Mail className="w-[18px] h-[18px]" />
+              </a>
+
+              <a
+                href={PERSONAL_INFO.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="p-2.5 rounded-md text-text-muted hover:text-gold transition-colors"
+              >
+                <Linkedin className="w-[18px] h-[18px]" />
+              </a>
+
+              <a
+                href={PERSONAL_INFO.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="p-2.5 rounded-md text-text-muted hover:text-gold transition-colors"
+              >
+                <Github className="w-[18px] h-[18px]" />
+              </a>
+            </div>
+
+            {/* Location / context */}
+            <div className="mt-8 pt-6 border-t border-border max-w-lg">
+              <p className="text-sm text-text-muted">
+                Based in Ethiopia · Building software for businesses and
+                organizations.
+              </p>
             </div>
           </div>
 
-          {/* =========================================================
-              RIGHT: VISUAL SYSTEM
-          ========================================================= */}
-          <div className="lg:col-span-5 relative">
+          {/* RIGHT: SIMPLE VISUAL */}
+          <div className="lg:col-span-5">
 
-            {/* Decorative grid */}
-            <div
-              className="absolute inset-0 opacity-[0.035] pointer-events-none"
-              style={{
-                backgroundImage:
-                  'linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)',
-                backgroundSize: '32px 32px',
-              }}
-            />
-
-            {/* Main visual card */}
             <div className="relative">
 
-              {/* Main project preview */}
-              <div className="relative overflow-hidden rounded-2xl border border-border bg-surface shadow-2xl">
+              {/* Main visual */}
+              <div className="overflow-hidden rounded-2xl border border-border bg-surface">
 
-                {/* Browser chrome */}
-                <div className="flex items-center justify-between px-4 py-3 border-b border-border">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/60" />
-                  </div>
+                {/* Replace this area with a REAL project screenshot later */}
+                <div className="aspect-[4/5] sm:aspect-[4/4] lg:aspect-[4/5] bg-bg-secondary flex items-center justify-center p-8">
 
-                  <div className="px-3 py-1 rounded-md bg-bg-primary text-[10px] font-mono text-text-muted">
-                    production
-                  </div>
-                </div>
+                  <div className="w-full max-w-sm">
 
-                {/* Project visualization */}
-                <div className="p-5 sm:p-7">
+                    <div className="mb-6">
+                      <p className="text-xs uppercase tracking-wider text-text-muted">
+                        Selected work
+                      </p>
 
-                  <div className="flex items-center justify-between mb-7">
-                    <div>
-                      <div className="text-[10px] uppercase tracking-widest text-text-muted font-mono">
-                        System overview
-                      </div>
-
-                      <div className="mt-1 text-lg font-semibold text-text-primary">
-                        From idea → production
-                      </div>
+                      <h2 className="mt-2 text-2xl font-semibold text-text-primary">
+                        From idea to production
+                      </h2>
                     </div>
 
-                    <div className="p-2.5 rounded-lg bg-gold/10 text-gold">
-                      <Layers3 className="w-5 h-5" />
-                    </div>
-                  </div>
+                    <div className="space-y-3">
 
-                  {/* Architecture visualization */}
-                  <div className="space-y-3">
+                      <div className="p-5 rounded-xl border border-border bg-bg-primary">
+                        <p className="text-xs text-text-muted">
+                          01
+                        </p>
 
-                    <div className="flex items-center gap-3">
-                      <div className="flex-1 h-16 rounded-xl border border-border bg-bg-primary flex items-center px-4">
-                        <div>
-                          <div className="text-xs font-semibold text-text-primary">
-                            Product
-                          </div>
-                          <div className="text-[10px] text-text-muted mt-1">
-                            Requirements · UX · Architecture
-                          </div>
-                        </div>
+                        <p className="mt-2 text-sm font-semibold text-text-primary">
+                          Understand the problem
+                        </p>
+
+                        <p className="mt-1 text-xs leading-relaxed text-text-muted">
+                          Requirements, users and business needs.
+                        </p>
                       </div>
 
-                      <div className="text-gold text-xs">→</div>
-                    </div>
+                      <div className="p-5 rounded-xl border border-border bg-bg-primary">
+                        <p className="text-xs text-text-muted">
+                          02
+                        </p>
 
-                    <div className="flex items-center gap-3 ml-6">
-                      <div className="flex-1 h-16 rounded-xl border border-gold/20 bg-gold/[0.04] flex items-center px-4">
-                        <div>
-                          <div className="text-xs font-semibold text-text-primary">
-                            Application
-                          </div>
-                          <div className="text-[10px] text-text-muted mt-1">
-                            React · Laravel · Node · APIs
-                          </div>
-                        </div>
+                        <p className="mt-2 text-sm font-semibold text-text-primary">
+                          Build the system
+                        </p>
+
+                        <p className="mt-1 text-xs leading-relaxed text-text-muted">
+                          Product, backend, APIs and integrations.
+                        </p>
                       </div>
 
-                      <div className="text-gold text-xs">→</div>
-                    </div>
+                      <div className="p-5 rounded-xl border border-border bg-bg-primary">
+                        <p className="text-xs text-text-muted">
+                          03
+                        </p>
 
-                    <div className="flex items-center gap-3 ml-12">
-                      <div className="flex-1 h-16 rounded-xl border border-border bg-bg-primary flex items-center px-4">
-                        <div>
-                          <div className="text-xs font-semibold text-text-primary">
-                            Infrastructure
-                          </div>
-                          <div className="text-[10px] text-text-muted mt-1">
-                            Hosting · DNS · SSL · Deployment
-                          </div>
-                        </div>
+                        <p className="mt-2 text-sm font-semibold text-text-primary">
+                          Deliver and maintain
+                        </p>
+
+                        <p className="mt-1 text-xs leading-relaxed text-text-muted">
+                          Deployment, hosting and ongoing improvement.
+                        </p>
                       </div>
 
-                      <div className="text-emerald-400 text-xs">✓</div>
                     </div>
 
-                  </div>
+                    <div className="mt-6 pt-5 border-t border-border">
+                      <p className="text-xs text-text-muted">
+                        React · Laravel · Node.js · PHP · MySQL
+                      </p>
+                    </div>
 
-                  {/* Technology strip */}
-                  <div className="mt-7 pt-5 border-t border-border flex flex-wrap gap-2">
-                    {['React', 'Laravel', 'Node.js', 'MySQL', 'REST API'].map(
-                      (tech) => (
-                        <span
-                          key={tech}
-                          className="px-2.5 py-1 rounded-md bg-bg-primary border border-border text-[10px] font-mono text-text-muted"
-                        >
-                          {tech}
-                        </span>
-                      )
-                    )}
                   </div>
                 </div>
               </div>
 
-              {/* Floating deployment card */}
-              <div className="absolute -bottom-6 -left-5 sm:-left-8 px-4 py-3 rounded-xl bg-surface border border-border shadow-xl flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-emerald-400/10">
-                  <Server className="w-4 h-4 text-emerald-400" />
-                </div>
-
-                <div>
-                  <div className="text-[10px] uppercase tracking-wider text-text-muted font-mono">
-                    Deployment
-                  </div>
-                  <div className="text-xs font-semibold text-text-primary">
-                    Production ready
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating leadership card */}
-              <div className="absolute -top-5 -right-4 sm:-right-7 px-4 py-3 rounded-xl bg-surface border border-border shadow-xl flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-gold/10">
-                  <Users className="w-4 h-4 text-gold" />
-                </div>
-
-                <div>
-                  <div className="text-[10px] uppercase tracking-wider text-text-muted font-mono">
-                    Leadership
-                  </div>
-                  <div className="text-xs font-semibold text-text-primary">
-                    Project delivery
-                  </div>
-                </div>
+              {/* Small project link */}
+              <div className="mt-4 flex justify-end">
+                <a
+                  href="#work"
+                  className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-gold transition-colors"
+                >
+                  See selected projects
+                  <ExternalLink className="w-4 h-4" />
+                </a>
               </div>
 
             </div>
           </div>
         </div>
 
-        {/* =========================================================
-            PROOF / NUMBERS
-        ========================================================= */}
+        {/* Proof */}
         <div className="border-t border-border">
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-border">
+          <div className="grid grid-cols-2 lg:grid-cols-4">
 
-            {PROOF_POINTS.map((item, idx) => (
+            {PROOF_POINTS.map((item, index) => (
               <div
-                key={idx}
-                id={`proof-point-${idx}`}
-                className="py-8 px-5 sm:px-8 first:pl-0 last:pr-0"
+                key={index}
+                className={`
+                  py-8 sm:py-10
+                  pr-5 sm:pr-8
+                  ${index > 0 ? 'pl-5 sm:pl-8 border-l border-border' : ''}
+                `}
               >
-                <div className="text-3xl sm:text-4xl font-display font-extrabold text-gold">
+                <div className="text-3xl sm:text-4xl font-display font-bold text-gold">
                   {item.metric}
                 </div>
 
-                <div className="mt-1 text-sm font-semibold text-text-primary">
+                <div className="mt-1 text-sm text-text-secondary">
                   {item.label}
                 </div>
               </div>
