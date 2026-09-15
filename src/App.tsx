@@ -61,6 +61,10 @@ export default function App() {
           <AboutSection />
         </section>
 
+        <section id="skill" className="py-20 bg-bg-secondary/50 border-t border-border/40">
+          <SkillsAndCapabilities />
+        </section>
+
         <section id="contact" className="py-20 border-t border-border/40">
           <ContactSection />
         </section>

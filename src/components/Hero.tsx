@@ -1,44 +1,67 @@
-import { ArrowDown, FileText, Github, Linkedin, Mail, Server, CheckCircle2, ShieldCheck, Cpu } from 'lucide-react';
+import {
+  ArrowDown,
+  FileText,
+  Github,
+  Linkedin,
+  Mail,
+  ExternalLink,
+  Layers3,
+  Server,
+  Users,
+} from 'lucide-react';
 import { PERSONAL_INFO, PROOF_POINTS } from '../data/portfolioData';
 
 export function Hero() {
   return (
     <section
       id="home"
-      className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-bg-primary border-b border-border"
+      className="relative overflow-hidden bg-bg-primary border-b border-border"
     >
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gold/5 blur-[120px] pointer-events-none rounded-full" />
-      <div className="absolute top-1/3 right-10 w-[300px] h-[250px] bg-blue-500/5 blur-[100px] pointer-events-none rounded-full" />
+      {/* Ambient background */}
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-gold/5 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 right-0 w-[300px] h-[300px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Positioning & Call to Actions */}
-          <div className="lg:col-span-7 space-y-7 text-left">
-            {/* Engineering Sub-Badge */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-md bg-surface border border-border text-gold text-xs font-mono tracking-wider uppercase">
-              <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-              <span>FULL-STACK ENGINEER × PROJECT LEAD</span>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* =========================================================
+            HERO INTRO
+        ========================================================= */}
+        <div className="min-h-[720px] lg:min-h-[760px] grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center py-28 md:py-36">
+
+          {/* LEFT: MESSAGE */}
+          <div className="lg:col-span-7">
+
+            {/* Role */}
+            <div className="inline-flex items-center gap-2.5 mb-7 px-3.5 py-2 rounded-full bg-surface border border-border text-xs font-mono uppercase tracking-wider text-text-secondary">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              Full-Stack Engineer · Project Lead
             </div>
 
-            {/* Main Headline */}
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-text-primary tracking-tight leading-[1.08]">
-                I build software from <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-amber-300 to-yellow-200">idea to production</span>.
-              </h1>
-              <p className="text-base sm:text-lg text-text-secondary leading-relaxed max-w-2xl font-sans">
-                I don't just write code. Based in Ethiopia, I design, develop, deploy, and lead real-world software systems. From stakeholder requirements and architectural blueprints to full-stack code, hosting, and post-launch stability.
-              </p>
-            </div>
+            {/* Headline */}
+            <h1 className="max-w-4xl text-5xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight leading-[1.02] text-text-primary">
+              I build software
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-amber-300 to-yellow-200">
+                that works in the real world.
+              </span>
+            </h1>
 
-            {/* Action Buttons & Socials */}
-            <div className="flex flex-wrap items-center gap-4 pt-1">
+            {/* Supporting statement */}
+            <p className="mt-7 max-w-2xl text-base sm:text-lg leading-relaxed text-text-secondary">
+              I turn ideas and business requirements into production-ready
+              systems, handling everything from full-stack development to
+              deployment, infrastructure, and project delivery.
+            </p>
+
+            {/* CTA */}
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+
               <a
                 href="#work"
                 id="hero-cta-work"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-gold hover:bg-gold/90 text-bg-primary font-semibold text-sm transition-all shadow-md shadow-gold/20 active:scale-95 cursor-pointer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-gold hover:bg-gold/90 text-bg-primary font-semibold text-sm transition-all shadow-lg shadow-gold/10 hover:shadow-gold/20 active:scale-[0.98]"
               >
-                <span>View My Work</span>
+                View my work
                 <ArrowDown className="w-4 h-4" />
               </a>
 
@@ -46,144 +69,234 @@ export function Hero() {
                 href={PERSONAL_INFO.cvPath}
                 download="Angosom_Gebremedhin_Berhe_CV.pdf"
                 id="hero-cta-cv"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-surface hover:bg-surface/80 text-text-primary border border-border hover:border-border/80 font-medium text-sm transition-all active:scale-95"
+                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg bg-surface hover:bg-surface/80 text-text-primary border border-border font-medium text-sm transition-all active:scale-[0.98]"
               >
                 <FileText className="w-4 h-4 text-gold" />
-                <span>Download CV</span>
+                Download CV
               </a>
 
-              <div className="flex items-center gap-2 border-l border-border pl-4 my-1">
+              {/* Social links */}
+              <div className="flex items-center gap-1 ml-1 sm:ml-2">
                 <a
                   href={`mailto:${PERSONAL_INFO.email}`}
-                  id="hero-social-email"
-                  aria-label="Email Angosom Gebremedhin Berhe"
-                  title={`Send email to ${PERSONAL_INFO.email}`}
-                  className="p-2.5 rounded-lg bg-surface border border-border text-text-muted hover:text-gold hover:border-gold/40 transition-colors"
+                  aria-label="Email Angosom"
+                  className="p-3 rounded-lg text-text-muted hover:text-gold hover:bg-surface transition-colors"
                 >
-                  <Mail className="w-4 h-4" />
+                  <Mail className="w-[18px] h-[18px]" />
                 </a>
+
                 <a
                   href={PERSONAL_INFO.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  id="hero-social-linkedin"
-                  aria-label="Angosom's LinkedIn Profile"
-                  className="p-2.5 rounded-lg bg-surface border border-border text-text-muted hover:text-gold hover:border-gold/40 transition-colors"
+                  aria-label="LinkedIn"
+                  className="p-3 rounded-lg text-text-muted hover:text-gold hover:bg-surface transition-colors"
                 >
-                  <Linkedin className="w-4 h-4" />
+                  <Linkedin className="w-[18px] h-[18px]" />
                 </a>
+
                 <a
                   href={PERSONAL_INFO.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  id="hero-social-github"
-                  aria-label="Angosom's GitHub Profile"
-                  className="p-2.5 rounded-lg bg-surface border border-border text-text-muted hover:text-gold hover:border-gold/40 transition-colors"
+                  aria-label="GitHub"
+                  className="p-3 rounded-lg text-text-muted hover:text-gold hover:bg-surface transition-colors"
                 >
-                  <Github className="w-4 h-4" />
+                  <Github className="w-[18px] h-[18px]" />
                 </a>
               </div>
             </div>
 
-            {/* Quick Status Tag */}
-            <div className="pt-2 flex items-center gap-3 text-xs text-text-muted font-mono">
-              <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
-              <span>Lead Systems Engineer & Full-Stack Developer at Ahaz Solutions</span>
+            {/* Small credibility line */}
+            <div className="mt-9 flex items-center gap-3 text-xs text-text-muted">
+              <div className="h-px w-8 bg-border" />
+              <span>
+                Based in Ethiopia · Building systems for real businesses
+              </span>
             </div>
           </div>
 
-          {/* Right Column: Execution Blueprint & Core Evidence */}
-          <div className="lg:col-span-5">
-            <div className="bg-surface/90 border border-border rounded-xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-sm">
-              {/* Card top bar */}
-              <div className="flex items-center justify-between pb-4 mb-4 border-b border-border text-xs font-mono text-text-muted">
-                <div className="flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/70" />
-                  <span className="ml-2 text-text-muted">production-pipeline.sh</span>
+          {/* =========================================================
+              RIGHT: VISUAL SYSTEM
+          ========================================================= */}
+          <div className="lg:col-span-5 relative">
+
+            {/* Decorative grid */}
+            <div
+              className="absolute inset-0 opacity-[0.035] pointer-events-none"
+              style={{
+                backgroundImage:
+                  'linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)',
+                backgroundSize: '32px 32px',
+              }}
+            />
+
+            {/* Main visual card */}
+            <div className="relative">
+
+              {/* Main project preview */}
+              <div className="relative overflow-hidden rounded-2xl border border-border bg-surface shadow-2xl">
+
+                {/* Browser chrome */}
+                <div className="flex items-center justify-between px-4 py-3 border-b border-border">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/60" />
+                  </div>
+
+                  <div className="px-3 py-1 rounded-md bg-bg-primary text-[10px] font-mono text-text-muted">
+                    production
+                  </div>
                 </div>
-                <span className="text-gold font-semibold">STAGE: PRODUCTION</span>
+
+                {/* Project visualization */}
+                <div className="p-5 sm:p-7">
+
+                  <div className="flex items-center justify-between mb-7">
+                    <div>
+                      <div className="text-[10px] uppercase tracking-widest text-text-muted font-mono">
+                        System overview
+                      </div>
+
+                      <div className="mt-1 text-lg font-semibold text-text-primary">
+                        From idea → production
+                      </div>
+                    </div>
+
+                    <div className="p-2.5 rounded-lg bg-gold/10 text-gold">
+                      <Layers3 className="w-5 h-5" />
+                    </div>
+                  </div>
+
+                  {/* Architecture visualization */}
+                  <div className="space-y-3">
+
+                    <div className="flex items-center gap-3">
+                      <div className="flex-1 h-16 rounded-xl border border-border bg-bg-primary flex items-center px-4">
+                        <div>
+                          <div className="text-xs font-semibold text-text-primary">
+                            Product
+                          </div>
+                          <div className="text-[10px] text-text-muted mt-1">
+                            Requirements · UX · Architecture
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="text-gold text-xs">→</div>
+                    </div>
+
+                    <div className="flex items-center gap-3 ml-6">
+                      <div className="flex-1 h-16 rounded-xl border border-gold/20 bg-gold/[0.04] flex items-center px-4">
+                        <div>
+                          <div className="text-xs font-semibold text-text-primary">
+                            Application
+                          </div>
+                          <div className="text-[10px] text-text-muted mt-1">
+                            React · Laravel · Node · APIs
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="text-gold text-xs">→</div>
+                    </div>
+
+                    <div className="flex items-center gap-3 ml-12">
+                      <div className="flex-1 h-16 rounded-xl border border-border bg-bg-primary flex items-center px-4">
+                        <div>
+                          <div className="text-xs font-semibold text-text-primary">
+                            Infrastructure
+                          </div>
+                          <div className="text-[10px] text-text-muted mt-1">
+                            Hosting · DNS · SSL · Deployment
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="text-emerald-400 text-xs">✓</div>
+                    </div>
+
+                  </div>
+
+                  {/* Technology strip */}
+                  <div className="mt-7 pt-5 border-t border-border flex flex-wrap gap-2">
+                    {['React', 'Laravel', 'Node.js', 'MySQL', 'REST API'].map(
+                      (tech) => (
+                        <span
+                          key={tech}
+                          className="px-2.5 py-1 rounded-md bg-bg-primary border border-border text-[10px] font-mono text-text-muted"
+                        >
+                          {tech}
+                        </span>
+                      )
+                    )}
+                  </div>
+                </div>
               </div>
 
-              {/* Execution Flow Steps */}
-              <div className="space-y-3.5 text-xs font-mono">
-                <div className="flex items-start gap-3 p-2.5 rounded-lg bg-bg-primary border border-border">
-                  <div className="mt-0.5 text-gold font-bold">01</div>
-                  <div>
-                    <div className="text-text-primary font-semibold">Requirements & Architecture</div>
-                    <div className="text-text-muted text-[11px]">Translating business needs to specifications & data schemas</div>
-                  </div>
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 ml-auto mt-0.5 shrink-0" />
+              {/* Floating deployment card */}
+              <div className="absolute -bottom-6 -left-5 sm:-left-8 px-4 py-3 rounded-xl bg-surface border border-border shadow-xl flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-emerald-400/10">
+                  <Server className="w-4 h-4 text-emerald-400" />
                 </div>
 
-                <div className="flex items-start gap-3 p-2.5 rounded-lg bg-bg-primary border border-border">
-                  <div className="mt-0.5 text-gold font-bold">02</div>
-                  <div>
-                    <div className="text-text-primary font-semibold">Full-Stack Development</div>
-                    <div className="text-text-muted text-[11px]">React, Node, Laravel, MySQL, REST APIs, and Offline PWAs</div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-wider text-text-muted font-mono">
+                    Deployment
                   </div>
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 ml-auto mt-0.5 shrink-0" />
-                </div>
-
-                <div className="flex items-start gap-3 p-2.5 rounded-lg bg-bg-primary border border-border">
-                  <div className="mt-0.5 text-gold font-bold">03</div>
-                  <div>
-                    <div className="text-text-primary font-semibold">Infrastructure & Deployment</div>
-                    <div className="text-text-muted text-[11px]">Hostinger, VPS, Domain, DNS, SSL, and zero-downtime release</div>
+                  <div className="text-xs font-semibold text-text-primary">
+                    Production ready
                   </div>
-                  <Server className="w-4 h-4 text-gold ml-auto mt-0.5 shrink-0" />
-                </div>
-
-                <div className="flex items-start gap-3 p-2.5 rounded-lg bg-bg-primary border border-border">
-                  <div className="mt-0.5 text-gold font-bold">04</div>
-                  <div>
-                    <div className="text-text-primary font-semibold">Team Leadership & Mentorship</div>
-                    <div className="text-text-muted text-[11px]">Jira sprint tracking, code reviews, and coaching 8+ interns</div>
-                  </div>
-                  <ShieldCheck className="w-4 h-4 text-emerald-400 ml-auto mt-0.5 shrink-0" />
                 </div>
               </div>
 
-              {/* Terminal footer status */}
-              <div className="mt-4 pt-3.5 border-t border-border flex items-center justify-between text-[11px] font-mono text-text-muted">
-                <span className="flex items-center gap-1.5">
-                  <Cpu className="w-3.5 h-3.5 text-text-muted" />
-                  Systems Operating: 100%
-                </span>
-                <span className="text-text-muted">Addis Ababa, ET</span>
+              {/* Floating leadership card */}
+              <div className="absolute -top-5 -right-4 sm:-right-7 px-4 py-3 rounded-xl bg-surface border border-border shadow-xl flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-gold/10">
+                  <Users className="w-4 h-4 text-gold" />
+                </div>
+
+                <div>
+                  <div className="text-[10px] uppercase tracking-wider text-text-muted font-mono">
+                    Leadership
+                  </div>
+                  <div className="text-xs font-semibold text-text-primary">
+                    Project delivery
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
         </div>
 
-        {/* Proof Points Strip: Evidence of experience, NOT generic counters */}
-        <div className="mt-16 pt-10 border-t border-border">
-          <div className="text-xs font-mono uppercase tracking-wider text-text-muted mb-6">
-            // Verified Track Record & Professional Scope
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* =========================================================
+            PROOF / NUMBERS
+        ========================================================= */}
+        <div className="border-t border-border">
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-border">
+
             {PROOF_POINTS.map((item, idx) => (
               <div
                 key={idx}
                 id={`proof-point-${idx}`}
-                className="p-5 rounded-xl bg-surface/50 border border-border hover:border-gold/30 transition-colors"
+                className="py-8 px-5 sm:px-8 first:pl-0 last:pr-0"
               >
-                <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-3xl sm:text-4xl font-display font-extrabold text-gold">
-                    {item.metric}
-                  </span>
+                <div className="text-3xl sm:text-4xl font-display font-extrabold text-gold">
+                  {item.metric}
                 </div>
-                <div className="text-sm font-semibold text-text-primary mb-1.5">
+
+                <div className="mt-1 text-sm font-semibold text-text-primary">
                   {item.label}
                 </div>
-                <p className="text-xs text-text-secondary leading-relaxed font-sans">
-                  {item.description}
-                </p>
               </div>
             ))}
+
           </div>
         </div>
+
       </div>
     </section>
   );

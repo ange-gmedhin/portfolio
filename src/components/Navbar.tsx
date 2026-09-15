@@ -1,157 +1,195 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, FileText } from 'lucide-react';
+import { Menu, X, FileText, ArrowUpRight } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface NavbarProps {
   activeSection: string;
 }
 
+const NAV_LINKS = [
+  { label: 'Work', href: '#work' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Capabilities', href: '#capabilities' },
+  { label: 'About', href: '#about' },
+  { label: 'Contact', href: '#contact' },
+];
+
 export function Navbar({ activeSection }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
 
+  // Scroll state + hide on scroll down, reveal on scroll up
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setIsScrolled(y > 24);
+      setIsHidden(y > 480 && y > lastY && !mobileMenuOpen);
+      lastY = y;
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [mobileMenuOpen]);
 
-  // Aligned with merged section structure
-  const navLinks = [
-    { label: 'Work', href: '#work' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Capabilities', href: '#capabilities' },
-    { label: 'About', href: '#about' },
-    { label: 'Contact', href: '#contact' },
-  ];
+  // Lock body scroll + Escape to close
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setMobileMenuOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [mobileMenuOpen]);
+
+  // Close menu when resizing to desktop
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 768) setMobileMenuOpen(false);
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
 
   return (
     <header
       id="site-header"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-bg-primary/90 backdrop-blur-md border-b border-border shadow-lg shadow-black/30 py-3'
-          : 'bg-transparent py-5'
+      className={`fixed inset-x-0 top-0 z-50 transition-transform duration-500 ${
+        isHidden ? '-translate-y-[110%]' : 'translate-y-0'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand identity */}
-        <a
-          href="#home"
-          id="brand-logo"
-          className="group flex items-center gap-3 text-text-primary hover:text-gold transition-colors"
-        >
-          <div className="w-9 h-9 rounded-lg bg-surface border border-border group-hover:border-gold/60 flex items-center justify-center font-mono font-bold text-gold text-sm tracking-tighter transition-all shadow-inner">
-            AGB
-          </div>
-          <div className="flex flex-col">
-            <span className="font-display font-bold text-sm tracking-tight text-text-primary group-hover:text-gold transition-colors">
-              Angosom Gebremedhin
-            </span>
-            <span className="font-mono text-[11px] text-text-muted tracking-normal flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              Full-Stack & Lead Systems Engineer
-            </span>
-          </div>
-        </a>
-
-        {/* Desktop navigation */}
-        <nav id="desktop-nav" aria-label="Main Navigation" className="hidden md:flex items-center gap-1 xl:gap-2">
-          {navLinks.map((link) => {
-            const sectionId = link.href.substring(1);
-            const isActive = activeSection === sectionId;
-            return (
-              <a
-                key={link.href}
-                href={link.href}
-                id={`nav-link-${sectionId}`}
-                className={`px-3.5 py-1.5 text-xs font-mono font-medium rounded-lg transition-all ${
-                  isActive
-                    ? 'text-gold bg-gold/10 border border-gold/30 shadow-sm'
-                    : 'text-text-secondary hover:text-text-primary hover:bg-surface/60'
-                }`}
-              >
-                {link.label}
-              </a>
-            );
-          })}
-        </nav>
-
-        {/* Action button */}
-        <div className="hidden sm:flex items-center gap-3">
-          <a
-            href={PERSONAL_INFO.cvPath}
-            download="Angosom_Gebremedhin_Berhe_CV.pdf"
-            id="nav-cv-button"
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-lg bg-gold hover:bg-gold-light text-bg-primary text-xs font-mono font-bold tracking-wide transition-all shadow-sm active:scale-95 cursor-pointer"
-          >
-            <FileText className="w-3.5 h-3.5" />
-            <span>Download CV</span>
-          </a>
-        </div>
-
-        {/* Mobile menu toggle */}
-        <button
-          type="button"
-          id="mobile-menu-toggle"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle navigation menu"
-          aria-expanded={mobileMenuOpen}
-          className="md:hidden p-2 rounded-lg bg-surface border border-border text-text-secondary hover:text-text-primary"
-        >
-          {mobileMenuOpen ? <X className="w-5 h-5 text-gold" /> : <Menu className="w-5 h-5" />}
-        </button>
-      </div>
-
-      {/* Mobile dropdown */}
-      {mobileMenuOpen && (
+      <div className="mx-auto max-w-6xl px-3 pt-3 sm:px-6 sm:pt-4">
         <div
-          id="mobile-nav-panel"
-          className="md:hidden bg-bg-primary/98 border-b border-border px-4 pt-4 pb-6 space-y-3 mt-3 shadow-2xl backdrop-blur-xl animate-in slide-in-from-top-2 duration-200"
+          className={`relative rounded-2xl border transition-all duration-300 ${
+            isScrolled
+              ? 'border-ink-700/70 bg-ink-950/85 shadow-xl shadow-black/30 backdrop-blur-xl'
+              : 'border-white/5 bg-ink-950/40 backdrop-blur-md'
+          }`}
         >
-          <div className="flex flex-col gap-1 pb-3 border-b border-border">
-            {navLinks.map((link) => {
-              const sectionId = link.href.substring(1);
-              const isActive = activeSection === sectionId;
-              return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`px-3 py-2.5 text-sm font-mono rounded-lg transition-colors flex items-center justify-between ${
-                    isActive
-                      ? 'text-gold bg-gold/10 font-bold border border-gold/30'
-                      : 'text-text-secondary hover:text-text-primary hover:bg-surface/60'
-                  }`}
-                >
-                  <span>{link.label}</span>
-                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-gold" />}
-                </a>
-              );
-            })}
+          <div className="flex h-14 items-center justify-between gap-3 px-3 sm:px-4">
+            {/* ---- Brand ---- */}
+            <a href="#home" id="brand-logo" className="group flex min-w-0 items-center gap-2.5">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-brown-soft/30 bg-brown/15 font-mono text-xs font-semibold text-brown-soft transition-colors group-hover:border-brown-soft/60">
+                AGB
+              </span>
+              <span className="hidden truncate font-display text-sm font-semibold text-text-on-dark lg:block">
+                Angosom Gebremedhin
+              </span>
+            </a>
+
+            {/* ---- Desktop nav (centered) ---- */}
+            <nav
+              id="desktop-nav"
+              aria-label="Main Navigation"
+              className="absolute left-1/2 hidden -translate-x-1/2 md:block"
+            >
+              <ul className="flex items-center gap-0.5">
+                {NAV_LINKS.map((link) => {
+                  const sectionId = link.href.substring(1);
+                  const isActive = activeSection === sectionId;
+                  return (
+                    <li key={link.href}>
+                      <a
+                        href={link.href}
+                        id={`nav-link-${sectionId}`}
+                        aria-current={isActive ? 'true' : undefined}
+                        className={`group relative block px-3 py-2 text-[13px] font-medium transition-colors lg:px-3.5 ${
+                          isActive
+                            ? 'text-brown-soft'
+                            : 'text-text-on-dark-muted hover:text-text-on-dark'
+                        }`}
+                      >
+                        {link.label}
+                        <span
+                          className={`absolute inset-x-3 -bottom-0.5 h-px bg-brown-soft transition-transform duration-300 ease-out ${
+                            isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-50'
+                          }`}
+                        />
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+
+            {/* ---- Actions ---- */}
+            <div className="flex items-center gap-2">
+              <a
+                href={PERSONAL_INFO.cvPath}
+                download="Angosom_Gebremedhin_Berhe_CV.pdf"
+                id="nav-cv-button"
+                className="hidden items-center gap-1.5 rounded-lg bg-brown px-3.5 py-2 text-[13px] font-semibold text-paper-50 shadow-sm transition-all duration-200 hover:bg-brown-deep hover:shadow-md hover:shadow-brown/20 active:scale-[0.98] sm:inline-flex"
+              >
+                <FileText className="h-3.5 w-3.5" />
+                Download CV
+              </a>
+              <button
+                type="button"
+                id="mobile-menu-toggle"
+                onClick={() => setMobileMenuOpen((open) => !open)}
+                aria-label="Toggle navigation menu"
+                aria-expanded={mobileMenuOpen}
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-ink-700 text-text-on-dark-muted transition-colors hover:text-text-on-dark md:hidden"
+              >
+                {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+              </button>
+            </div>
           </div>
 
-          <div className="pt-2 flex flex-col gap-2">
-            <a
-              href={PERSONAL_INFO.cvPath}
-              download="Angosom_Gebremedhin_Berhe_CV.pdf"
-              className="w-full py-2.5 px-4 rounded-lg bg-gold hover:bg-gold-light text-bg-primary font-mono font-bold text-xs flex items-center justify-center gap-2 transition-all"
-            >
-              <FileText className="w-4 h-4" />
-              Download CV (PDF)
-            </a>
-            <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-2.5 px-4 rounded-lg border border-border text-text-primary text-center text-xs font-mono font-medium hover:bg-surface transition-all"
-            >
-              Contact Direct
-            </a>
+          {/* ---- Mobile panel (animated, lives inside the pill) ---- */}
+          <div
+            id="mobile-nav-panel"
+            className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-out md:hidden ${
+              mobileMenuOpen ? 'max-h-[420px] opacity-100' : 'max-h-0 opacity-0'
+            }`}
+          >
+            <nav aria-label="Mobile Navigation" className="border-t border-ink-700/60 px-3 pb-4 pt-2">
+              <ul className="flex flex-col">
+                {NAV_LINKS.map((link, i) => {
+                  const sectionId = link.href.substring(1);
+                  const isActive = activeSection === sectionId;
+                  return (
+                    <li
+                      key={link.href}
+                      className={`transition-all duration-300 ${
+                        mobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
+                      }`}
+                      style={{ transitionDelay: mobileMenuOpen ? `${60 + i * 40}ms` : '0ms' }}
+                    >
+                      <a
+                        href={link.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={`flex items-center justify-between rounded-lg px-3 py-2.5 text-sm transition-colors ${
+                          isActive
+                            ? 'bg-ink-800 font-medium text-brown-soft'
+                            : 'text-text-on-dark-muted hover:bg-ink-800/60 hover:text-text-on-dark'
+                        }`}
+                      >
+                        {link.label}
+                        <ArrowUpRight
+                          className={`h-3.5 w-3.5 transition-opacity ${
+                            isActive ? 'text-brown-soft opacity-100' : 'opacity-0'
+                          }`}
+                        />
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+              <a
+                href={PERSONAL_INFO.cvPath}
+                download="Angosom_Gebremedhin_Berhe_CV.pdf"
+                className="mt-3 flex items-center justify-center gap-2 rounded-lg bg-brown px-4 py-2.5 text-sm font-semibold text-paper-50 transition-colors hover:bg-brown-deep"
+              >
+                <FileText className="h-4 w-4" />
+                Download CV (PDF)
+              </a>
+            </nav>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }

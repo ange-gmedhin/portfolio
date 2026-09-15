@@ -1,38 +1,66 @@
 @import "tailwindcss";
 
+/* ============================================================
+   DEFAULT: Eye-comfort dark theme
+   - warm near-black instead of pure black (less harsh)
+   - off-white text instead of pure white (reduces glare)
+   - desaturated gold instead of vivid (less halation on dark bg)
+   ============================================================ */
 :root {
   /* ===== Core Backgrounds ===== */
-  --bg-primary: #0B1726;
-  --bg-secondary: #10243A;
-  --surface: #162D44;
-  --surface-hover: #1C3852;
+  --bg-primary: #16140F;      /* warm near-black, not blue-black */
+  --bg-secondary: #1C1913;
+  --surface: #221E17;
+  --surface-hover: #2A251C;
 
   /* ===== Brand Accents ===== */
-  --gold: #E7A93B;
-  --gold-light: #F3C15B;
+  --gold: #C9975C;            /* muted, desaturated — easier on dark bg than bright gold */
+  --gold-light: #DCB37E;
 
   /* ===== Typography ===== */
-  --text-primary: #F4F1E8;
-  --text-secondary: #AAB7C4;
-  --text-muted: #718397;
+  --text-primary: #E8E2D6;    /* off-white, ~88% brightness, not pure white */
+  --text-secondary: #A89C89;
+  --text-muted: #766B5A;
 
   /* ===== Borders & Structure ===== */
-  --border-color: #294057;
+  --border-color: #332C22;
 
   /* ===== Semantics ===== */
-  --success: #55B78A;
-  --warning: #E7A93B;
-  --error: #D96C6C;
-  --info: #69B8C7;
+  --success: #7FA687;
+  --warning: #C9975C;
+  --error: #C77B6A;
+  --info: #7FA0AC;
 }
 
-@theme {
-  /* Fonts */
+/* ============================================================
+   ALT: Soft paper (light) theme — dimmed vs your draft
+   ============================================================ */
+.theme-light {
+  --bg-primary: #F0EBE1;      /* dimmer than FAF7F2, less glare */
+  --bg-secondary: #E7DFCF;
+  --surface: #E7DFCF;
+  --surface-hover: #DCD2BD;
+
+  --gold: #8B5A2B;
+  --gold-light: #A9784A;
+
+  --text-primary: #2A2318;    /* not pure black */
+  --text-secondary: #5C5347;
+  --text-muted: #8A7F6F;
+
+  --border-color: #D8CCB4;
+
+  --success: #4C7A5E;
+  --warning: #A67C2E;
+  --error: #A64B3A;
+  --info: #5F7E8C;
+}
+
+@theme inline {
   --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-display: "Outfit", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* Color mappings for Tailwind utilities */
   --color-bg-primary: var(--bg-primary);
   --color-bg-secondary: var(--bg-secondary);
   --color-surface: var(--surface);
@@ -73,13 +101,19 @@
   }
 }
 
-/* Updated Background Grid Patterns using your brand colors */
 .engineering-grid {
-  background-image: radial-gradient(rgba(170, 183, 196, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(168, 156, 137, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 .amber-grid {
-  background-image: radial-gradient(rgba(231, 169, 59, 0.15) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(201, 151, 92, 0.15) 1px, transparent 1px);
   background-size: 24px 24px;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 100px;
 }
